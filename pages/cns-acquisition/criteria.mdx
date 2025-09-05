@@ -1,0 +1,173 @@
+
+import styles from '../../components/cns.module.css';
+import FitChart from '../../components/FitChart';
+
+<div className={styles.container}>
+  <div className={styles.section}>
+    <h2>Acquisition Criteria Framework</h2>
+    
+    <div className={styles.highlightBox}>
+        <strong>Strategic Thesis:</strong> Target CNS companies with defensible technology, established revenue streams, and clear bolt-on potential. Avoid binary biotech risk while maintaining innovation upside through operational leverage.
+    </div>
+
+    <h3>Financial Criteria</h3>
+    <div className={styles.criteriaGrid}>
+        <div className={styles.criteriaSection}>
+            <h5>Anchor Targets (Control Positions)</h5>
+            <ul className={styles.criteriaList}>
+                <li>Revenue: $35-75M annually</li>
+                <li>EBITDA: $7-15M (20%+ margin)</li>
+                <li>Growth: 15%+ CAGR sustainable</li>
+                <li>Cash flow positive or path within 12 months</li>
+                <li>Working capital &lt;45 days</li>
+                <li>Gross margins: 60%+ for SaaS, 40%+ devices</li>
+                <li>Customer concentration: No single &gt;25%</li>
+            </ul>
+        </div>
+
+        <div className={styles.criteriaSection}>
+            <h5>Bolt-On Targets (Strategic Additions)</h5>
+            <ul className={styles.criteriaList}>
+                <li>Revenue: $5-25M annually</li>
+                <li>EBITDA: Positive or breakeven</li>
+                <li>Growth: 20%+ or synergy-driven</li>
+                <li>Strategic fit: Technology/channel/data synergies</li>
+                <li>Integration timeline: &lt;18 months</li>
+                <li>Synergy confidence: 70%+ of underwrite</li>
+                <li>Management retention: 80%+ key talent</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Operational Criteria</h3>
+    <div className={styles.criteriaGrid}>
+        <div className={styles.criteriaSection}>
+            <h5>Technology & IP</h5>
+            <ul className={styles.criteriaList}>
+                <li>Defensible IP portfolio (patents, trade secrets)</li>
+                <li>Regulatory approvals or clear pathway</li>
+                <li>FDA/EMA interactions documented</li>
+                <li>Clinical data supporting efficacy</li>
+                <li>Competitive moat (technology, data, network)</li>
+                <li>Scalable platform architecture</li>
+            </ul>
+        </div>
+
+        <div className={styles.criteriaSection}>
+            <h5>Market Position</h5>
+            <ul className={styles.criteriaList}>
+                <li>Established payer relationships</li>
+                <li>Reimbursement codes secured or likely</li>
+                <li>Key opinion leader endorsement</li>
+                <li>Clinical validation studies published</li>
+                <li>Distribution partnerships in place</li>
+                <li>Brand recognition in target segments</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Strategic Fit Assessment</h3>
+    <div className={styles.chartContainer}>
+        <FitChart />
+    </div>
+
+    <h3>Valuation Framework</h3>
+    <table className={styles.dataTable}>
+        <thead>
+            <tr>
+                <th>Business Model</th>
+                <th>Revenue Multiple</th>
+                <th>EBITDA Multiple</th>
+                <th>Key Drivers</th>
+                <th>Risk Factors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>SaaS Diagnostics</td>
+                <td>4-8x</td>
+                <td>15-25x</td>
+                <td>Recurring revenue, data moat</td>
+                <td>Reimbursement changes</td>
+            </tr>
+            <tr>
+                <td>Device + Software</td>
+                <td>3-6x</td>
+                <td>12-20x</td>
+                <td>Hardware margins, install base</td>
+                <td>Technology obsolescence</td>
+            </tr>
+            <tr>
+                <td>Specialty Pharma</td>
+                <td>5-10x</td>
+                <td>10-18x</td>
+                <td>Patent protection, margins</td>
+                <td>Regulatory risk</td>
+            </tr>
+            <tr>
+                <td>Platform/Network</td>
+                <td>2-5x</td>
+                <td>8-15x</td>
+                <td>Network effects, scalability</td>
+                <td>Provider adoption</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Deal Structure Framework</h3>
+    <div className={styles.grid}>
+        <div className={styles.card}>
+            <h4>Anchors (Control)</h4>
+            <div className={styles.metric}>
+                <span>Ownership Target</span>
+                <span className={styles.metricValue}>51-80%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Management Rollover</span>
+                <span className={styles.metricValue}>15-25%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Cash at Close</span>
+                <span className={styles.metricValue}>70-85%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Earnout/Milestones</span>
+                <span className={styles.metricValue}>15-30%</span>
+            </div>
+        </div>
+
+        <div className={styles.card}>
+            <h4>Bolt-Ons (Strategic)</h4>
+            <div className={styles.metric}>
+                <span>Ownership Target</span>
+                <span className={styles.metricValue}>80-100%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Management Rollover</span>
+                <span className={styles.metricValue}>5-15%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Cash at Close</span>
+                <span className={styles.metricValue}>60-75%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Synergy-Based Earnout</span>
+                <span className={styles.metricValue}>25-40%</span>
+            </div>
+        </div>
+    </div>
+
+    <div className={styles.criticalBox}>
+        <strong>Red Flags - Automatic Pass:</strong>
+        <ul style={{marginTop: '10px'}}>
+            <li>Single-product dependency with no pipeline</li>
+            <li>Founder-dependent operations (no management team)</li>
+            <li>Regulatory black box (no FDA interaction history)</li>
+            <li>Customer concentration >50% in top 3 accounts</li>
+            <li>Technology more than one generation behind leaders</li>
+            <li>Negative gross margins or unclear unit economics</li>
+            <li>Active litigation threatening core IP</li>
+        </ul>
+    </div>
+  </div>
+</div>

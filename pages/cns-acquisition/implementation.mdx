@@ -1,0 +1,124 @@
+
+import styles from '../../components/cns.module.css';
+import KpiChart from '../../components/KpiChart';
+
+<div className={styles.container}>
+  <div className={styles.section}>
+    <h2>Implementation Framework</h2>
+
+    <h3>Target Sourcing Strategy</h3>
+    <div className={styles.grid}>
+        <div className={styles.card}>
+            <h4>Direct Outreach (40%)</h4>
+            <ul className={styles.criteriaList}>
+                <li>Industry databases: PitchBook, CB Insights</li>
+                <li>Conference networking: CNS-focused events</li>
+                <li>Academic partnerships: university tech transfer</li>
+                <li>Management team referrals</li>
+                <li>Board member introductions</li>
+            </ul>
+        </div>
+
+        <div className={styles.card}>
+            <h4>Intermediated Sources (35%)</h4>
+            <ul className={styles.criteriaList}>
+                <li>Investment banks: Boutique healthcare focus</li>
+                <li>Business brokers: Mid-market specialists</li>
+                <li>Legal firms: Healthcare practice groups</li>
+                <li>Accounting firms: Audit relationships</li>
+                <li>Consultant networks: Strategy firms</li>
+            </ul>
+        </div>
+
+        <div className={styles.card}>
+            <h4>Strategic Intelligence (25%)</h4>
+            <ul className={styles.criteriaList}>
+                <li>Patent monitoring: New filings/grants</li>
+                <li>Clinical trial tracking: FDA databases</li>
+                <li>Regulatory monitoring: Approval announcements</li>
+                <li>Competitive analysis: Product launches</li>
+                <li>Financial distress signals: Funding rounds</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Due Diligence Framework</h3>
+    <div className={styles.implementationStep}>
+        <h6>Phase 1: Initial Screening (2-3 weeks)</h6>
+        <p>Management presentation, financial package review, market position assessment, regulatory status check, competitive landscape analysis, initial valuation modeling.</p>
+    </div>
+
+    <div className={styles.implementationStep}>
+        <h6>Phase 2: Deep Dive (4-6 weeks)</h6>
+        <p>Technology assessment, clinical data review, regulatory pathway validation, customer interviews, competitive benchmarking, detailed financial analysis, management team evaluation.</p>
+    </div>
+
+    <div className={styles.implementationStep}>
+        <h6>Phase 3: Final Validation (2-3 weeks)</h6>
+        <p>Legal due diligence, accounting verification, IT infrastructure assessment, integration planning, synergy validation, final valuation, LOI negotiation.</p>
+    </div>
+
+    <h3>Integration Playbook</h3>
+    <table className={styles.dataTable}>
+        <thead>
+            <tr>
+                <th>Timeline</th>
+                <th>Key Activities</th>
+                <th>Success Metrics</th>
+                <th>Risk Mitigation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Day 0-30</strong></td>
+                <td>Governance setup, comm plan, quick wins, baseline KPIs</td>
+                <td>100% leadership aligned, 5+ quick wins identified</td>
+                <td>Daily leadership standups, issue escalation process</td>
+            </tr>
+            <tr>
+                <td><strong>Day 31-60</strong></td>
+                <td>NoeticOS implementation, shared services migration</td>
+                <td>80% systems integrated, 15% cost synergies realized</td>
+                <td>Change management program, employee retention focus</td>
+            </tr>
+            <tr>
+                <td><strong>Day 61-100</strong></td>
+                <td>Cross-selling launch, pricing optimization, talent integration</td>
+                <td>25% attach rate, 300 bps margin improvement</td>
+                <td>Customer success management, competitive response plan</td>
+            </tr>
+            <tr>
+                <td><strong>Day 100+</strong></td>
+                <td>Platform scaling, next acquisition preparation</td>
+                <td>70% synergy realization, bolt-on pipeline ready</td>
+                <td>Continuous improvement process, culture integration</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Investment Committee Framework</h3>
+    <div className={styles.criticalBox}>
+        <strong>IC Memo Requirements:</strong>
+        <ol style={{marginTop: '10px', paddingLeft: '20px'}}>
+            <li><strong>Deal Snapshot:</strong> Target profile, transaction structure, key metrics</li>
+            <li><strong>Investment Thesis:</strong> Strategic rationale, competitive positioning, value creation plan</li>
+            <li><strong>Market Analysis:</strong> TAM/SAM/SOM, competitive landscape, growth drivers</li>
+            <li><strong>Technology Assessment:</strong> IP portfolio, regulatory status, clinical validation</li>
+            <li><strong>Financial Analysis:</strong> Historical performance, projections, unit economics</li>
+            <li><strong>Management Team:</strong> Track record, retention plan, incentive alignment</li>
+            <li><strong>Integration Plan:</strong> Synergy roadmap, risk mitigation, timeline</li>
+            <li><strong>Returns Analysis:</strong> Base/upside/downside scenarios, sensitivity analysis</li>
+            <li><strong>Next Steps:</strong> Key milestones, gating factors, timeline to close</li>
+        </ol>
+    </div>
+
+    <h3>Performance Tracking Dashboard</h3>
+    <div className={styles.chartContainer}>
+        <KpiChart />
+    </div>
+
+    <div className={styles.successBox}>
+        <strong>Success Metrics:</strong> Target screening 100+ companies annually, 20+ LOIs signed, 3-5 acquisitions completed, 70%+ synergy realization within 18 months, 15%+ portfolio ROIC achieved.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,183 @@
+
+import styles from '../../components/cns.module.css';
+import ValuationChart from '../../components/ValuationChart';
+
+<div className={styles.container}>
+  <div className={styles.header}>
+    <h1>CNS ACQUISITION FRAMEWORK</h1>
+    <p>Industry Analysis & Target Archetype Strategy</p>
+    <p><strong>Noetic 2.0: From VC to Operating Company</strong></p>
+    <div className={styles.timestamp}>Data Current as of September 2025</div>
+  </div>
+
+  <div className={styles.section}>
+    <h2>CNS Industry Deep Dive: Commercial & Financial Landscape</h2>
+    
+    <div className={styles.highlightBox}>
+        <strong>Market Reality Check (September 2025):</strong> CNS therapeutics market valued at $130-180B globally, growing 6-11% CAGR. Mental health therapeutics dominate (40.2% market share), neurodegenerative fastest growing (11.5% CAGR). North America leads (45% market share), Asia-Pacific fastest growing.
+    </div>
+
+    <h3>Market Segmentation & Growth Dynamics</h3>
+    <div className={styles.grid}>
+        <div className={styles.card}>
+            <h4>Market Size by Segment (2024)</h4>
+            <div className={styles.metric}>
+                <span>Mental Health Therapeutics</span>
+                <span className={styles.metricValue}>40.2%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Neurodegenerative Diseases</span>
+                <span className={styles.metricValue}>35-40%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Neurological Disorders</span>
+                <span className={styles.metricValue}>15-20%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>CNS Cancer</span>
+                <span className={styles.metricValue}>3-5%</span>
+            </div>
+        </div>
+
+        <div className={styles.card}>
+            <h4>Growth Rates by Segment (CAGR)</h4>
+            <div className={styles.metric}>
+                <span>Neurodegenerative</span>
+                <span className={styles.metricValue}>11.5%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>CNS Cancer</span>
+                <span className={styles.metricValue}>10-12%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Mental Health</span>
+                <span className={styles.metricValue}>8-10%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Overall CNS Market</span>
+                <span className={styles.metricValue}>7-9%</span>
+            </div>
+        </div>
+
+        <div className={styles.card}>
+            <h4>Geographic Distribution (2024)</h4>
+            <div className={styles.metric}>
+                <span>North America</span>
+                <span className={styles.metricValue}>45%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Europe</span>
+                <span className={styles.metricValue}>28%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Asia-Pacific</span>
+                <span className={styles.metricValue}>20%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Rest of World</span>
+                <span className={styles.metricValue}>7%</span>
+            </div>
+        </div>
+
+        <div className={styles.card}>
+            <h4>Distribution Channels</h4>
+            <div className={styles.metric}>
+                <span>Hospital Pharmacies</span>
+                <span className={styles.metricValue}>46.3%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Retail Pharmacies</span>
+                <span className={styles.metricValue}>35%</span>
+            </div>
+            <div className={styles.metric}>
+                <span>Online/Specialty</span>
+                <span className={styles.metricValue}>18.7%</span>
+            </div>
+        </div>
+    </div>
+
+    <h3>Financial & Valuation Landscape</h3>
+    <div className={styles.chartContainer}>
+        <ValuationChart />
+    </div>
+
+    <div className={styles.criticalBox}>
+        <strong>Valuation Reality Check:</strong> Healthcare/pharma EV/EBITDA multiples average 14.9x (2024). HealthTech revenue multiples down to 4.8x from 6.5x in 2023. M&A deal volume flat but multiples climbing—buyers pickier but paying premium for quality assets.
+    </div>
+
+    <h3>Competitive Landscape & M&A Activity</h3>
+    <table className={styles.dataTable}>
+        <thead>
+            <tr>
+                <th>Major Players</th>
+                <th>2024 Focus Areas</th>
+                <th>Recent M&A Activity</th>
+                <th>Strategic Positioning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>AbbVie</strong></td>
+                <td>Neurodegeneration, Parkinson's</td>
+                <td>Cerevel ($8.7B), Aliada ($1.4B)</td>
+                <td>Platform builder</td>
+            </tr>
+            <tr>
+                <td><strong>Bristol Myers Squibb</strong></td>
+                <td>Psychiatry, Schizophrenia</td>
+                <td>Karuna Therapeutics ($14B)</td>
+                <td>Late-stage acquirer</td>
+            </tr>
+            <tr>
+                <td><strong>Biogen</strong></td>
+                <td>Alzheimer's, Multiple Sclerosis</td>
+                <td>Sangamo partnership</td>
+                <td>Pipeline rebuilding</td>
+            </tr>
+            <tr>
+                <td><strong>Pfizer</strong></td>
+                <td>Neurological biosimilars</td>
+                <td>Selective mid-market</td>
+                <td>Global scaling</td>
+            </tr>
+            <tr>
+                <td><strong>Novartis</strong></td>
+                <td>Rare CNS, Gene therapy</td>
+                <td>Strategic collaborations</td>
+                <td>Innovation focus</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Market Drivers & Headwinds</h3>
+    <div className={styles.grid}>
+        <div className={styles.card}>
+            <h4>Primary Growth Drivers</h4>
+            <ul className={styles.criteriaList}>
+                <li>Aging population (60+ reaching 2.1B by 2050)</li>
+                <li>Mental health destigmatization post-COVID</li>
+                <li>AI/digital diagnostics advancement</li>
+                <li>Personalized medicine adoption</li>
+                <li>Regulatory fast-track approvals</li>
+                <li>Telemedicine integration</li>
+            </ul>
+        </div>
+
+        <div className={styles.card}>
+            <h4>Key Headwinds</h4>
+            <ul className={styles.criteriaList}>
+                <li>High drug development costs ($2.6B average)</li>
+                <li>Regulatory complexity (FDA/EMA pathways)</li>
+                <li>Talent scarcity (neuroscience expertise)</li>
+                <li>Payer reimbursement challenges</li>
+                <li>Clinical trial failures (high attrition)</li>
+                <li>Competition from Big Pharma</li>
+            </ul>
+        </div>
+    </div>
+
+    <div className={styles.successBox}>
+        <strong>White Space Opportunity:</strong> Mid-market operator HoldCo between biotech VC (binary risk) and PE roll-ups (limited innovation). Focus on CNS infrastructure/enablers with earlier cash flow, easier integration, and synergy compounding potential.
+    </div>
+  </div>
+</div>
