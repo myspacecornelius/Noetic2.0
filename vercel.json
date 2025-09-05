@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "installCommand": "npm ci",
+  "buildCommand": "next build",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.david-c-nichols.online" }],
+      "destination": "https://david-c-nichols.online/$1",
+      "permanent": true
+    }
+  ]
+}

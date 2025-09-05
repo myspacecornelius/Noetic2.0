@@ -1,0 +1,6 @@
+export default {
+  index: 'Industry Overview',
+  criteria: 'Acquisition Criteria',
+  archetypes: 'Target Archetypes',
+  implementation: 'Implementation'
+}
