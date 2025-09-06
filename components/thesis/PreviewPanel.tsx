@@ -135,7 +135,6 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
             })
           }
         } else if (selection.type === 'phase') {
-        } else if (selection.type === 'phase') {
           const phaseData = metricsData.phases.find(p => p.id === selection.id)
           if (phaseData) {
             pages.push({

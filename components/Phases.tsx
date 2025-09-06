@@ -1,7 +1,15 @@
 import { useState } from 'react'
 import PhaseTabs from './PhaseTabs'
 import DashboardCard from './DashboardCard'
-import { MarketLine, CapitalDoughnut, NoeticOsRadar, PlatformKpiBar, ValueCreationDualAxis, ReturnBar } from './NoeticCharts'
+// Use dynamic, SSR-disabled chart components to prevent SSR crashes
+import { 
+  MarketLineChart,
+  CapitalDoughnutChart,
+  NoeticOsRadarChart,
+  PlatformKpiBarChart,
+  ValueCreationDualAxisChart,
+  ReturnBarChart
+} from './ChartComponents'
 
 export default function Phases() {
   const [phase, setPhase] = useState('p0')
@@ -24,7 +32,7 @@ export default function Phases() {
         <div className="dash-grid">
           <DashboardCard title="Market Opportunity">
             <div style={{ height: 300 }}>
-              <MarketLine />
+              <MarketLineChart />
             </div>
             <div style={{ background: '#fee2e2', border: '1px solid #fecaca', borderRadius: 8, padding: 10, marginTop: 10, color: '#dc2626' }}>
               <strong>Reality Check:</strong> Neurotech funding was $2.3B in 2024 across 129 deals—your hunting ground is smaller than global CNS market
@@ -36,7 +44,7 @@ export default function Phases() {
             <div className="metric"><span>Bolt-On Allocation</span><span className="metricValue">30-40%</span></div>
             <div className="metric"><span>Reserves</span><span className="metricValue">20-30%</span></div>
             <div style={{ height: 300, marginTop: 12 }}>
-              <CapitalDoughnut />
+              <CapitalDoughnutChart />
             </div>
           </DashboardCard>
           <DashboardCard title="Phase 0 Critical Metrics">
@@ -79,7 +87,7 @@ export default function Phases() {
           </DashboardCard>
           <DashboardCard title="NoeticOS Implementation">
             <div style={{ height: 300 }}>
-              <NoeticOsRadar />
+              <NoeticOsRadarChart />
             </div>
           </DashboardCard>
           <DashboardCard title="Financial Projections">
@@ -102,7 +110,7 @@ export default function Phases() {
           </DashboardCard>
           <DashboardCard title="Platform KPIs">
             <div style={{ height: 300 }}>
-              <PlatformKpiBar />
+              <PlatformKpiBarChart />
             </div>
           </DashboardCard>
           <DashboardCard title="Synergy Tracking">
@@ -133,7 +141,7 @@ export default function Phases() {
           </DashboardCard>
           <DashboardCard title="System-Level Value Creation">
             <div style={{ height: 300 }}>
-              <ValueCreationDualAxis />
+              <ValueCreationDualAxisChart />
             </div>
           </DashboardCard>
           <DashboardCard title="Platform Advantages">
@@ -166,7 +174,7 @@ export default function Phases() {
           </DashboardCard>
           <DashboardCard title="Return Scenarios">
             <div style={{ height: 300 }}>
-              <ReturnBar />
+              <ReturnBarChart />
             </div>
           </DashboardCard>
           <DashboardCard title="Exit Readiness Metrics">
@@ -180,4 +188,3 @@ export default function Phases() {
     </>
   )
 }
-

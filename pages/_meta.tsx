@@ -1,11 +1,11 @@
 const meta = {
   index: 'Home',
-  'noetic-2': 'Noetic 2.0',
-  'thesis-builder': 'Thesis Builder',
+  advanced: 'Strategy',
+  'noetic-2': 'Platform',
+  'cns-acquisition': 'Acquisition',
+  another: 'Scenarios',
+  'thesis-builder': 'Builder',
   about: 'About',
-  advanced: 'Features',
-  another: 'Showcase',
-  'cns-acquisition': 'CNS Acquisition',
   contact: {
     title: 'Contact',
     type: 'page',

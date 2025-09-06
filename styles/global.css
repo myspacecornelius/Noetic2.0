@@ -1274,3 +1274,390 @@ pre { border: 1px solid var(--border); }
     box-shadow: 0 0 8px var(--hover-glow);
   }
 }
+
+/* ===== NEW CONTENT STYLES ===== */
+
+/* Home page transformation styles */
+.transformation-overview {
+  margin-top: 2rem;
+}
+
+.brand-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.brand-accent {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #fff;
+}
+
+.version-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+.cta-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.market-opportunity {
+  margin: 2rem 0;
+}
+
+.opportunity-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--hover-glow);
+  animation: synapse-fire 0.6s ease-in-out;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--neural-red);
+  margin-bottom: 0.5rem;
+  animation: kpi-pulse 3s ease-in-out infinite;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.pathway-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pathway-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--hover-glow);
+  border-color: var(--neural-red);
+}
+
+.pathway-card h3 {
+  color: var(--neural-red);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Strategic Analysis page styles */
+.risk-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.risk-category {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.risk-category h4 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.risk-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.risk-category li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.risk-category li:last-child {
+  border-bottom: none;
+}
+
+/* Market Intelligence page styles */
+.intelligence-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.intel-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.intel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--hover-glow);
+  border-color: var(--neural-purple);
+}
+
+.intel-card h3 {
+  color: var(--neural-purple);
+  margin-bottom: 1rem;
+}
+
+.intel-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.intel-card li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.intel-card li:last-child {
+  border-bottom: none;
+}
+
+.deal-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.metric-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--hover-glow);
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--neural-red);
+  margin-bottom: 0.5rem;
+  animation: kpi-pulse 3s ease-in-out infinite;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.metric-detail {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+
+.target-analysis {
+  margin: 2rem 0;
+}
+
+.target-tier {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.target-tier h4 {
+  color: var(--neural-purple);
+  margin-bottom: 1rem;
+}
+
+/* Investment Scenarios page styles */
+.scenario-metrics {
+  margin: 2rem 0;
+}
+
+.scenario-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  transition: all 0.3s ease;
+}
+
+.scenario-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--hover-glow);
+}
+
+.scenario-card.base-case {
+  border-color: var(--neural-red);
+  background: linear-gradient(135deg, rgba(139, 21, 56, 0.05), rgba(76, 29, 149, 0.05));
+}
+
+.scenario-card.upside {
+  border-color: var(--success-500);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(139, 21, 56, 0.05));
+}
+
+.scenario-card.conservative {
+  border-color: var(--warning-500);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(76, 29, 149, 0.05));
+}
+
+.scenario-card.stress {
+  border-color: var(--danger-500);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(139, 21, 56, 0.05));
+}
+
+.return-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.return-metrics .metric {
+  text-align: center;
+}
+
+.return-metrics .value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--neural-red);
+  margin-bottom: 0.5rem;
+  animation: kpi-pulse 3s ease-in-out infinite;
+}
+
+.return-metrics .label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.sensitivity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.sensitivity-factor {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.sensitivity-factor:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--hover-glow);
+  border-color: var(--neural-red);
+}
+
+.sensitivity-factor h4 {
+  color: var(--neural-red);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.sensitivity-factor ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sensitivity-factor li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.sensitivity-factor li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .opportunity-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .pathways-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .intelligence-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .deal-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .return-metrics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sensitivity-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-container {
+    flex-direction: column;
+  }
+  
+  .brand-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

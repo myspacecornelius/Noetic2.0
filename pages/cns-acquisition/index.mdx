@@ -1,6 +1,7 @@
 
 import styles from '../../components/cns.module.css';
-import ValuationChart from '../../components/ValuationChart';
+import dynamic from 'next/dynamic';
+const ValuationChart = dynamic(() => import('../../components/ValuationChart'), { ssr: false });
 
 <div className={styles.container}>
   <div className={styles.header}>
