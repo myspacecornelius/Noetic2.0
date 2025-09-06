@@ -1,6 +1,7 @@
 const meta = {
   index: 'Home',
   'noetic-2': 'Noetic 2.0',
+  'thesis-builder': 'Thesis Builder',
   about: 'About',
   advanced: 'Features',
   another: 'Showcase',
