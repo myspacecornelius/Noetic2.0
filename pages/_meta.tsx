@@ -1,4 +1,4 @@
-export default {
+const meta = {
   index: 'Home',
   'noetic-2': 'Noetic 2.0',
   about: 'About',
@@ -12,3 +12,5 @@ export default {
     newWindow: true
   }
 }
+
+export default meta

@@ -1,0 +1,113 @@
+{
+  "market": {
+    "labels": ["2024", "2025", "2026", "2027", "2028", "2029", "2030"],
+    "data": [140.4, 155, 171.1, 189, 208.7, 230.4, 254.6],
+    "title": "CNS Market Size ($B)",
+    "color": "#667eea"
+  },
+  "capital": {
+    "labels": ["Anchors", "Bolt-Ons", "Reserves"],
+    "data": [45, 35, 20],
+    "colors": ["#667eea", "#764ba2", "#a855f7"]
+  },
+  "noeticOs": {
+    "labels": ["FP&A", "Reg/QA", "Market Access", "Data/AI", "GTM", "People Ops"],
+    "data": [20, 15, 10, 25, 30, 20],
+    "max": 100,
+    "color": "#667eea"
+  },
+  "platformKpis": {
+    "labels": ["Revenue Growth", "EBITDA Margin", "Cross-Sell Rate", "Integration Speed"],
+    "current": [15, 18, 12, 70],
+    "target": [25, 25, 25, 90],
+    "colors": {
+      "current": "#e5e7eb",
+      "target": "#667eea"
+    }
+  },
+  "valueCreation": {
+    "labels": ["Year 0", "Year 1", "Year 2", "Year 3", "Year 4"],
+    "revenue": [0, 40, 80, 150, 200],
+    "ebitdaMargin": [0, 15, 20, 25, 30],
+    "colors": {
+      "revenue": "#667eea",
+      "ebitdaMargin": "#764ba2"
+    }
+  },
+  "returnScenarios": {
+    "labels": ["Base Case", "Upside Case", "Stress Case"],
+    "data": [15, 25, 8],
+    "colors": ["#10b981", "#667eea", "#ef4444"]
+  },
+  "phases": [
+    {
+      "id": "p0",
+      "title": "Phase 0: Foundation",
+      "duration": "Months 0-6",
+      "metrics": {
+        "operatingPartners": "0/3",
+        "targetPipeline": "0/100+",
+        "noeticOsDevelopment": "Planning",
+        "firstLOIs": "Target: 20+"
+      }
+    },
+    {
+      "id": "p1", 
+      "title": "Phase 1: Anchor",
+      "duration": "Months 6-18",
+      "metrics": {
+        "revenueRange": "$35-75M",
+        "ebitdaMargin": "20%+",
+        "focusAreas": "Neurodiagnostics",
+        "businessModel": "SaaS + Device"
+      }
+    },
+    {
+      "id": "p2",
+      "title": "Phase 2: Bolt-Ons", 
+      "duration": "Months 12-30",
+      "metrics": {
+        "targetCount": "3-6 acquisitions",
+        "sizeRange": "$5-25M revenue",
+        "integrationTimeline": "<18 months",
+        "synergyTarget": "70% of underwrite"
+      }
+    },
+    {
+      "id": "p3",
+      "title": "Phase 3: Scale",
+      "duration": "Months 30-48", 
+      "metrics": {
+        "combinedRevenue": "$150M+ target",
+        "ebitdaMargin": "25%+ target",
+        "fcfYield": "15%+ target",
+        "revenueInvestedCapital": "1.2x+ target"
+      }
+    },
+    {
+      "id": "p4",
+      "title": "Phase 4: Exit",
+      "duration": "Months 48-72",
+      "metrics": {
+        "revenueRunRate": "$200M+ target",
+        "ebitdaMargin": "30%+ target", 
+        "growthRate": "20%+ sustainable",
+        "marketPosition": "Top 3 in niche"
+      }
+    }
+  ],
+  "capitalPlan": {
+    "targetFundSize": "$500M - $1.5B",
+    "anchorAllocation": "40-50%",
+    "boltOnAllocation": "30-40%", 
+    "reserves": "20-30%"
+  },
+  "risks": [
+    {"level": "high", "name": "Integration Execution"},
+    {"level": "medium", "name": "Regulatory/Payer"},
+    {"level": "high", "name": "Talent Retention"},
+    {"level": "medium", "name": "Market Timing"},
+    {"level": "medium", "name": "Competition"},
+    {"level": "low", "name": "Technology Risk"}
+  ]
+}
