@@ -105,11 +105,14 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
     }
 
     // Content pages based on selections
+    type ChartComponentKey = keyof typeof chartComponents
+    
     state.selections
       .sort((a, b) => a.order - b.order)
       .forEach(selection => {
-        if (selection.type === 'chart') {
-          const ChartComponent = chartComponents[selection.id as keyof typeof chartComponents]
+        if (selection.type === 'chart' && (selection.id as string) in chartComponents) {
+          const chartKey = selection.id as ChartComponentKey
+          const ChartComponent = chartComponents[chartKey]
           if (ChartComponent) {
             pages.push({
               id: selection.id,
@@ -131,6 +134,7 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
               )
             })
           }
+        } else if (selection.type === 'phase') {
         } else if (selection.type === 'phase') {
           const phaseData = metricsData.phases.find(p => p.id === selection.id)
           if (phaseData) {
