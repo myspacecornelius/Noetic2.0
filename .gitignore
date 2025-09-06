@@ -1,0 +1,25 @@
+# Ignore Dharma files
+
+# General ignores
+.DS_Store
+.vscode/
+*.code-workspace
+
+# Ignore node modules and build outputs
+node_modules/
+.next/
+out/
+dist/
+.turbo/
+npm-debug.log*
+yarn-debug.log*
+.pnp.*
+.vercel/
+
+# Ignore files related to the Dharma project
+/Dharma 
+/Dharma.lock
+/Dharma-debug.log*
+/Dharma-error.log*
+/Dharma-*.tgz
+.DS_Store
