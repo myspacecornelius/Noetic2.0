@@ -3,8 +3,10 @@ title: Market Intelligence
 ---
 
 import { Callout } from 'nextra/components'
-import { CollapsibleSection, StatBox, Chip, Tooltip, StickySubnav, AnimatedCounter, formatters } from '../components/ui'
-import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTriangle, Globe, DollarSign, BarChart3 } from 'lucide-react'
+import { CollapsibleSection, StatBox, Chip, Tooltip, AnimatedCounter, formatters, IntelTile, TechnologyAccordion, LazySection } from '../components/ui'
+import { StickyScrollspy } from '../components/StickyScrollspy'
+import { SectionCTARow } from '../components/thesis/AddToThesisButton'
+import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTriangle, Globe, DollarSign, BarChart3, Dna, Brain, Cpu, Microscope } from 'lucide-react'
 
 # Market Intelligence
 
@@ -13,14 +15,14 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
   <p>Real-time market insights, competitive analysis, and strategic intelligence for informed investment decisions in the central nervous system therapeutics landscape.</p>
 </div>
 
-<StickySubnav
+<StickyScrollspy
   items={[
-    { id: 'dashboard', label: 'Dashboard', href: '#dashboard', icon: <BarChart3 className="w-4 h-4" /> },
-    { id: 'competitive', label: 'Competitive', href: '#competitive', icon: <Target className="w-4 h-4" /> },
-    { id: 'investment', label: 'Investment', href: '#investment', icon: <DollarSign className="w-4 h-4" /> },
-    { id: 'technology', label: 'Technology', href: '#technology', icon: <Zap className="w-4 h-4" /> },
-    { id: 'regulatory', label: 'Regulatory', href: '#regulatory', icon: <AlertTriangle className="w-4 h-4" /> },
-    { id: 'recommendations', label: 'Actions', href: '#recommendations', icon: <Activity className="w-4 h-4" /> }
+    { id: 'dashboard', label: 'Dashboard', icon: <BarChart3 className="w-4 h-4" /> },
+    { id: 'competitive', label: 'Competitive', icon: <Target className="w-4 h-4" /> },
+    { id: 'investment', label: 'Investment', icon: <DollarSign className="w-4 h-4" /> },
+    { id: 'technology', label: 'Technology', icon: <Zap className="w-4 h-4" /> },
+    { id: 'regulatory', label: 'Regulatory', icon: <AlertTriangle className="w-4 h-4" /> },
+    { id: 'recommendations', label: 'Actions', icon: <Activity className="w-4 h-4" /> }
   ]}
 />
 
@@ -116,23 +118,17 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
 
 <div id="competitive">
 
-<CollapsibleSection 
-  title="Competitive Landscape" 
-  defaultOpen={true}
-  icon={<Target className="w-5 h-5" />}
-  variant="card"
->
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div className="intel-card interactive-element glow-on-hover smooth-corners">
-      <div className="flex items-center gap-3 mb-4">
-        <Building2 className="w-6 h-6 text-blue-400" />
-        <div>
-          <h3 className="text-blue-400 font-semibold">Big Pharma</h3>
-          <div className="text-sm text-gray-400">40% Market Share</div>
-        </div>
-      </div>
-      
-      <div className="space-y-3">
+## Competitive Landscape
+
+<LazySection>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <IntelTile
+      title="Big Pharma"
+      meta="40% Market Share"
+      icon={<Building2 className="w-6 h-6" />}
+      variant="primary"
+    >
+      <div className="space-y-3 mb-4">
         <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
           <span className="font-medium text-gray-300">
             <Tooltip content="Global leader in oncology and CNS, strong Alzheimer's pipeline">
@@ -166,23 +162,26 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
           <span className="text-blue-400 font-bold">$5.9B</span>
         </div>
       </div>
-    </div>
-
-    <div className="intel-card interactive-element glow-on-hover smooth-corners">
-      <div className="flex items-center gap-3 mb-4">
-        <BrainCog className="w-6 h-6 text-green-400" />
-        <div>
-          <h3 className="text-green-400 font-semibold">Biotech Innovation</h3>
-          <div className="text-sm text-gray-400">35% Market Share</div>
-        </div>
+      <div className="flex flex-wrap gap-2">
+        <Chip size="sm" variant="primary">Market Leaders</Chip>
+        <Chip size="sm" variant="success">Established</Chip>
+        <Chip size="sm" variant="info">Global Reach</Chip>
       </div>
-      
+    </IntelTile>
+
+    <IntelTile
+      title="Biotech Innovation"
+      meta="35% Market Share"
+      icon={<BrainCog className="w-6 h-6" />}
+      variant="success"
+    >
       <div className="grid grid-cols-2 gap-4 mb-4">
         <StatBox
           label="Unicorns"
           value={15}
           size="sm"
           tooltip="Companies with $1B+ valuations"
+          animated={false}
         />
         <StatBox
           label="Pipeline Programs"
@@ -190,6 +189,7 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
           suffix="+"
           size="sm"
           tooltip="Phase II+ CNS programs"
+          animated={false}
         />
         <StatBox
           label="2024 Funding"
@@ -198,6 +198,7 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
           suffix="B"
           size="sm"
           tooltip="Total investment volume"
+          animated={false}
         />
         <StatBox
           label="Success Rate"
@@ -205,26 +206,23 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
           suffix="%"
           size="sm"
           tooltip="Phase I to approval rate"
+          animated={false}
         />
       </div>
-      
       <div className="flex flex-wrap gap-2">
         <Chip size="sm" variant="success">Emerging Leaders</Chip>
         <Chip size="sm" variant="primary">High Innovation</Chip>
         <Chip size="sm" variant="warning">High Risk</Chip>
       </div>
-    </div>
+    </IntelTile>
 
-    <div className="intel-card interactive-element glow-on-hover smooth-corners">
-      <div className="flex items-center gap-3 mb-4">
-        <Zap className="w-6 h-6 text-amber-400" />
-        <div>
-          <h3 className="text-amber-400 font-semibold">Digital Health</h3>
-          <div className="text-sm text-gray-400">15% Market Share</div>
-        </div>
-      </div>
-      
-      <div className="space-y-3">
+    <IntelTile
+      title="Digital Health"
+      meta="15% Market Share"
+      icon={<Zap className="w-6 h-6" />}
+      variant="warning"
+    >
+      <div className="space-y-3 mb-4">
         <div className="bg-gray-800/30 rounded p-3">
           <div className="font-medium text-gray-300 mb-1">Digital Therapeutics</div>
           <div className="text-sm text-gray-400">FDA-approved apps and devices</div>
@@ -238,23 +236,20 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
           <div className="text-sm text-gray-400">Patient tracking and outcomes</div>
         </div>
       </div>
-      
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         <Chip size="sm" variant="info">Scalable</Chip>
         <Chip size="sm" variant="warning">Reimbursement Risk</Chip>
+        <Chip size="sm" variant="primary">Innovation</Chip>
       </div>
-    </div>
+    </IntelTile>
 
-    <div className="intel-card interactive-element glow-on-hover smooth-corners">
-      <div className="flex items-center gap-3 mb-4">
-        <Users className="w-6 h-6 text-purple-400" />
-        <div>
-          <h3 className="text-purple-400 font-semibold">Research Institutions</h3>
-          <div className="text-sm text-gray-400">10% Market Share</div>
-        </div>
-      </div>
-      
-      <div className="space-y-3">
+    <IntelTile
+      title="Research Institutions"
+      meta="10% Market Share"
+      icon={<Users className="w-6 h-6" />}
+      variant="info"
+    >
+      <div className="space-y-3 mb-4">
         <div className="bg-gray-800/30 rounded p-3">
           <div className="font-medium text-gray-300 mb-1">Academic Medical Centers</div>
           <div className="text-sm text-gray-400">Clinical trial leadership</div>
@@ -268,14 +263,26 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
           <div className="text-sm text-gray-400">Early-stage asset sourcing</div>
         </div>
       </div>
-      
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         <Chip size="sm" variant="default">Early Stage</Chip>
         <Chip size="sm" variant="info">Academic</Chip>
+        <Chip size="sm" variant="success">Research Focus</Chip>
       </div>
-    </div>
+    </IntelTile>
   </div>
-</CollapsibleSection>
+  
+  <SectionCTARow
+    sectionId="competitive"
+    sectionTitle="Competitive Landscape"
+    data={{
+      bigPharma: { marketShare: 40, leaders: ["Roche", "Novartis", "Biogen", "J&J"] },
+      biotech: { marketShare: 35, unicorns: 15, funding: 8.2 },
+      digitalHealth: { marketShare: 15, categories: ["Digital Therapeutics", "AI/ML", "Remote Monitoring"] },
+      research: { marketShare: 10, types: ["Academic Medical Centers", "Government Labs", "Technology Transfer"] }
+    }}
+    downloadFormat="csv"
+  />
+</LazySection>
 
 </div>
 
@@ -377,37 +384,80 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
   </div>
 </div>
 
-### Technology Intelligence
+<div id="technology">
 
-**Breakthrough Technologies**
+## Technology Intelligence
 
-**Gene & Cell Therapy**
-- **Market Impact**: $15B market by 2030
-- **Key Players**: Novartis (Zolgensma), BioMarin, Sarepta
-- **Investment Thesis**: One-time curative treatments with premium pricing
-- **Risk Factors**: Manufacturing complexity, regulatory pathways
+<TechnologyAccordion
+  defaultOpen="gene-cell-therapy"
+  technologies={[
+    {
+      id: 'gene-cell-therapy',
+      title: 'Gene & Cell Therapy',
+      icon: <Dna className="w-6 h-6" />,
+      marketImpact: '$15B market by 2030',
+      marketSize: '$15B',
+      timeframe: '2030',
+      keyPlayers: ['Novartis (Zolgensma)', 'BioMarin', 'Sarepta'],
+      investmentThesis: 'One-time curative treatments with premium pricing power. Gene and cell therapies represent the next frontier in CNS treatments, offering potential cures rather than chronic management.',
+      riskFactors: ['Manufacturing complexity', 'Regulatory pathways', 'High development costs']
+    },
+    {
+      id: 'digital-therapeutics',
+      title: 'Digital Therapeutics',
+      icon: <Brain className="w-6 h-6" />,
+      marketImpact: '$8B market by 2030',
+      marketSize: '$8B',
+      timeframe: '2030',
+      keyPlayers: ['Pear Therapeutics', 'Akili Interactive', 'AppliedVR'],
+      investmentThesis: 'Software-based treatments with highly scalable economics and lower development costs. FDA approval pathways established with growing payer acceptance.',
+      riskFactors: ['Reimbursement challenges', 'Clinical evidence requirements', 'Competition from apps']
+    },
+    {
+      id: 'ai-drug-discovery',
+      title: 'AI-Driven Drug Discovery',
+      icon: <Cpu className="w-6 h-6" />,
+      marketImpact: '40% reduction in discovery timelines',
+      keyPlayers: ['Recursion Pharmaceuticals', 'Exscientia', 'Atomwise'],
+      investmentThesis: 'Platform approach enabling multiple asset generation with significantly reduced timelines and costs. AI/ML platforms can screen millions of compounds rapidly.',
+      riskFactors: ['Technology validation', 'Competitive moats', 'Data quality dependencies']
+    },
+    {
+      id: 'precision-biomarkers',
+      title: 'Precision Biomarkers',
+      icon: <Microscope className="w-6 h-6" />,
+      marketImpact: '25% improvement in clinical success rates',
+      keyPlayers: ['Prothena', 'Roche Diagnostics', 'Quanterix'],
+      investmentThesis: 'Personalized medicine approach improving patient selection and treatment outcomes. Critical for neurodegeneration where early intervention is key.',
+      riskFactors: ['Regulatory acceptance', 'Market access', 'Diagnostic adoption']
+    }
+  ]}
+/>
 
-**Digital Therapeutics**
-- **Market Impact**: $8B market by 2030  
-- **Key Players**: Pear Therapeutics, Akili Interactive, AppliedVR
-- **Investment Thesis**: Software-based treatments with scalable economics
-- **Risk Factors**: Reimbursement challenges, clinical evidence requirements
+<SectionCTARow
+  sectionId="technology"
+  sectionTitle="Technology Intelligence"
+  data={{
+    geneCellTherapy: { marketSize: '$15B', timeline: '2030', keyPlayers: 3 },
+    digitalTherapeutics: { marketSize: '$8B', timeline: '2030', keyPlayers: 3 },
+    aiDrugDiscovery: { efficiency: '40% reduction', keyPlayers: 3 },
+    precisionBiomarkers: { improvement: '25%', keyPlayers: 3 }
+  }}
+  downloadFormat="json"
+/>
 
-**AI-Driven Drug Discovery**
-- **Market Impact**: 40% reduction in discovery timelines
-- **Key Players**: Recursion Pharmaceuticals, Exscientia, Atomwise
-- **Investment Thesis**: Platform approach with multiple asset generation
-- **Risk Factors**: Technology validation, competitive moats
+</div>
 
-**Precision Biomarkers**
-- **Market Impact**: 25% improvement in clinical success rates
-- **Key Players**: Prothena, Roche Diagnostics, Quanterix
-- **Investment Thesis**: Personalized medicine and targeted patient selection
-- **Risk Factors**: Regulatory acceptance, market access
+<div id="regulatory">
 
 ## Strategic Intelligence
 
-### Regulatory Landscape
+<CollapsibleSection 
+  title="Regulatory Landscape" 
+  defaultOpen={true}
+  icon={<AlertTriangle className="w-5 h-5" />}
+  variant="card"
+>
 
 **FDA Breakthrough Designations (2024)**
 - **Total CNS Designations**: 18 programs
@@ -420,54 +470,293 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
 - **Adaptive Pathways**: 6 CNS products in pilot program
 - **Pediatric Investigation Plans**: 8 CNS programs approved
 
-**Reimbursement Intelligence**
-- **Value-Based Contracts**: 15 CNS products with outcome-based pricing
-- **Health Technology Assessments**: NICE, ICER evaluations pending for 8 assets
-- **Payer Coverage**: Medicare Advantage expanding CNS digital therapeutic coverage
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <StatBox
+      label="FDA Breakthrough Designations"
+      value={18}
+      icon={<AlertTriangle className="w-5 h-5" />}
+      variant="success"
+      tooltip="Total CNS programs with breakthrough therapy designation in 2024"
+      animated={false}
+    />
+    <StatBox
+      label="European PRIME Programs"
+      value={12}
+      icon={<Globe className="w-5 h-5" />}
+      variant="primary"
+      tooltip="CNS programs accepted into EU PRIME designation"
+      animated={false}
+    />
+    <StatBox
+      label="Value-Based Contracts"
+      value={15}
+      icon={<DollarSign className="w-5 h-5" />}
+      variant="warning"
+      tooltip="CNS products with outcome-based pricing agreements"
+      animated={false}
+    />
+  </div>
 
-### Market Access Intelligence
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <IntelTile
+      title="FDA Designations"
+      meta="2024 Breakthrough Programs"
+      icon={<AlertTriangle className="w-6 h-6" />}
+      variant="success"
+    >
+      <div className="space-y-2">
+        <div className="flex justify-between">
+          <span className="text-gray-300">Neurodegeneration</span>
+          <span className="text-green-400 font-bold">8</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-300">Psychiatric</span>
+          <span className="text-green-400 font-bold">6</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-300">Rare CNS</span>
+          <span className="text-green-400 font-bold">4</span>
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="success">Fast Track</Chip>
+        <Chip size="sm" variant="primary">Priority Review</Chip>
+      </div>
+    </IntelTile>
 
-**Key Stakeholder Mapping**
+    <IntelTile
+      title="European Updates"
+      meta="EMA Programs & Pathways"
+      icon={<Globe className="w-6 h-6" />}
+      variant="primary"
+    >
+      <div className="space-y-2">
+        <div className="flex justify-between">
+          <span className="text-gray-300">PRIME Programs</span>
+          <span className="text-blue-400 font-bold">12</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-300">Adaptive Pathways</span>
+          <span className="text-blue-400 font-bold">6</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-300">Pediatric Plans</span>
+          <span className="text-blue-400 font-bold">8</span>
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="primary">EU Access</Chip>
+        <Chip size="sm" variant="info">Pediatric</Chip>
+      </div>
+    </IntelTile>
 
-**Payers & Health Systems**
-- **Commercial Payers**: Aetna, Anthem, BCBS regional preferences
-- **Government Programs**: Medicare, Medicaid coverage patterns
-- **Integrated Health Systems**: Kaiser Permanente, Cleveland Clinic adoption patterns
-- **Pharmacy Benefits**: Express Scripts, CVS Health formulary strategies
+    <IntelTile
+      title="Payers & Health Systems"
+      meta="Key Coverage Networks"
+      icon={<Building2 className="w-6 h-6" />}
+      variant="warning"
+    >
+      <div className="space-y-3">
+        <div className="bg-gray-800/30 rounded p-2">
+          <div className="text-sm font-medium text-gray-300">Commercial Payers</div>
+          <div className="text-xs text-gray-400">Aetna, Anthem, BCBS</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-2">
+          <div className="text-sm font-medium text-gray-300">Integrated Systems</div>
+          <div className="text-xs text-gray-400">Kaiser, Cleveland Clinic</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-2">
+          <div className="text-sm font-medium text-gray-300">PBMs</div>
+          <div className="text-xs text-gray-400">Express Scripts, CVS</div>
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="warning">Coverage</Chip>
+        <Chip size="sm" variant="info">Formulary</Chip>
+      </div>
+    </IntelTile>
 
-**Healthcare Providers**
-- **Academic Medical Centers**: Mayo Clinic, Johns Hopkins treatment protocols
-- **Specialty Clinics**: Neurology, psychiatry practice patterns
-- **Digital Health Adoption**: Telemedicine and remote monitoring usage
-- **Key Opinion Leaders**: Top 50 CNS physicians and researchers
+    <IntelTile
+      title="Patient & Advocacy Groups"
+      meta="Key Stakeholder Networks"
+      icon={<Users className="w-6 h-6" />}
+      variant="info"
+    >
+      <div className="space-y-2">
+        <div className="flex justify-between">
+          <span className="text-gray-300">
+            <Tooltip content="6M patients, $321B annual economic impact">
+              Alzheimer's Assoc
+            </Tooltip>
+          </span>
+          <span className="text-cyan-400 font-bold">6M</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-300">
+            <Tooltip content="1M patients, strong advocacy priorities">
+              MS Society
+            </Tooltip>
+          </span>
+          <span className="text-cyan-400 font-bold">1M</span>
+        </div>
+        <div className="flex justify-between">
+          <span className="text-gray-300">
+            <Tooltip content="Mental health patient representation">
+              NAMI
+            </Tooltip>
+          </span>
+          <span className="text-cyan-400 font-bold">Mental Health</span>
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="info">Patient Access</Chip>
+        <Chip size="sm" variant="success">Advocacy</Chip>
+      </div>
+    </IntelTile>
+  </div>
+</CollapsibleSection>
 
-**Patient & Advocacy Groups**
-- **Alzheimer's Association**: 6M patients, $321B annual impact
-- **National MS Society**: 1M patients, advocacy priorities
-- **NAMI**: Mental health patient representation
-- **Rare Disease Organizations**: Patient registries and natural history studies
+<SectionCTARow
+  sectionId="regulatory"
+  sectionTitle="Strategic Intelligence"
+  data={{
+    fdaBreakthroughs: { total: 18, neurodegeneration: 8, psychiatric: 6, rare: 4 },
+    europeanPrime: { accepted: 12, adaptivePathways: 6, pediatric: 8 },
+    reimbursement: { valueContracts: 15, hta: 8, medicare: 'expanding' },
+    stakeholders: { payers: 4, providers: 4, advocacy: 4 }
+  }}
+  downloadFormat="json"
+/>
+
+</div>
+
+<div id="recommendations">
 
 ## Intelligence Recommendations
 
-### Immediate Actions (0-6 months)
+<CollapsibleSection 
+  title="Implementation Roadmap" 
+  defaultOpen={true}
+  icon={<Activity className="w-5 h-5" />}
+  variant="card"
+>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <IntelTile
+      title="Immediate Actions"
+      meta="0-6 months"
+      icon={<Target className="w-6 h-6" />}
+      variant="danger"
+    >
+      <div className="space-y-3">
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Market Mapping</div>
+          <div className="text-sm text-gray-400">Analysis of 150+ CNS companies</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Competitive Intelligence</div>
+          <div className="text-sm text-gray-400">Monitoring systems for key competitors</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Regulatory Tracking</div>
+          <div className="text-sm text-gray-400">FDA/EMA milestone tracking</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Stakeholder Engagement</div>
+          <div className="text-sm text-gray-400">KOL and expert relationships</div>
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="danger">High Priority</Chip>
+        <Chip size="sm" variant="primary">Foundation</Chip>
+      </div>
+    </IntelTile>
 
-1. **Market Mapping**: Complete comprehensive analysis of 150+ CNS companies
-2. **Competitive Intelligence**: Establish monitoring systems for key competitors
-3. **Regulatory Tracking**: Implement FDA/EMA milestone tracking for pipeline assets
-4. **Stakeholder Engagement**: Initiate relationships with KOLs and industry experts
+    <IntelTile
+      title="Strategic Intelligence"
+      meta="6-18 months"
+      icon={<TrendingUp className="w-6 h-6" />}
+      variant="warning"
+    >
+      <div className="space-y-3">
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Deal Flow Development</div>
+          <div className="text-sm text-gray-400">Proprietary sourcing network</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Due Diligence Platform</div>
+          <div className="text-sm text-gray-400">Systematic evaluation framework</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Market Access Strategy</div>
+          <div className="text-sm text-gray-400">Payer and reimbursement strategy</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Technology Assessment</div>
+          <div className="text-sm text-gray-400">Emerging technology evaluation</div>
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="warning">Medium Priority</Chip>
+        <Chip size="sm" variant="success">Scaling</Chip>
+      </div>
+    </IntelTile>
 
-### Strategic Intelligence (6-18 months)
+    <IntelTile
+      title="Long-term Intelligence"
+      meta="18+ months"
+      icon={<BrainCog className="w-6 h-6" />}
+      variant="success"
+    >
+      <div className="space-y-3">
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Predictive Analytics</div>
+          <div className="text-sm text-gray-400">AI-driven market forecasting</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Competitive Advantage</div>
+          <div className="text-sm text-gray-400">Proprietary datasets and insights</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Strategic Partnerships</div>
+          <div className="text-sm text-gray-400">Exclusive intelligence sharing</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Exit Optimization</div>
+          <div className="text-sm text-gray-400">Market timing and buyer intelligence</div>
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="success">Long-term</Chip>
+        <Chip size="sm" variant="info">Strategic</Chip>
+      </div>
+    </IntelTile>
+  </div>
+</CollapsibleSection>
 
-1. **Deal Flow Development**: Create proprietary deal sourcing network
-2. **Due Diligence Platform**: Build systematic evaluation framework
-3. **Market Access Strategy**: Develop payer engagement and reimbursement strategy
-4. **Technology Assessment**: Evaluate emerging technologies for strategic investment
+<div className="text-center mt-8 py-8 border-t border-gray-700/50">
+  <div className="flex justify-center gap-6 flex-wrap">
+    <a 
+      href="/advanced" 
+      className="button glow-on-hover"
+      aria-label="View detailed strategic analysis"
+    >
+      View Strategic Analysis →
+    </a>
+    <a 
+      href="/noetic-2" 
+      className="button secondary glow-on-hover"
+      aria-label="Explore the Noetic 2.0 platform"
+    >
+      Explore Platform →
+    </a>
+    <a 
+      href="/thesis-builder" 
+      className="button secondary glow-on-hover"
+      aria-label="Build your investment thesis"
+    >
+      Build Thesis →
+    </a>
+  </div>
+</div>
 
-### Long-term Intelligence (18+ months)
-
-1. **Predictive Analytics**: Implement AI-driven market forecasting
-2. **Competitive Advantage**: Develop proprietary datasets and insights
-3. **Strategic Partnerships**: Establish exclusive intelligence sharing agreements
-4. **Exit Optimization**: Market timing and buyer intelligence for optimal exits
-
-[**View Strategic Analysis →**](/advanced) | [**Explore Platform →**](/noetic-2) | [**Build Thesis →**](/thesis-builder)
+</div>
