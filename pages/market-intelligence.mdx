@@ -4,6 +4,8 @@ title: Market Intelligence
 
 import { Callout } from 'nextra/components'
 import { CollapsibleSection, StatBox, Chip, Tooltip, AnimatedCounter, formatters, IntelTile, TechnologyAccordion, LazySection } from '../components/ui'
+import { CompetitiveLandscape } from '../components/CompetitiveLandscape'
+import { MarketSharePieChart } from '../components/MarketSharePieChart'
 import { StickyScrollspy } from '../components/StickyScrollspy'
 import { SectionCTARow } from '../components/thesis/AddToThesisButton'
 import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTriangle, Globe, DollarSign, BarChart3, Dna, Brain, Cpu, Microscope } from 'lucide-react'
@@ -26,7 +28,7 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
   ]}
 />
 
-<div id="dashboard">
+<div id="dashboard" className="section-container">
 
 ## Intelligence Dashboard
 
@@ -121,53 +123,13 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
 ## Competitive Landscape
 
 <LazySection>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-    <IntelTile
-      title="Big Pharma"
-      meta="40% Market Share"
-      icon={<Building2 className="w-6 h-6" />}
-      variant="primary"
-    >
-      <div className="space-y-3 mb-4">
-        <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
-          <span className="font-medium text-gray-300">
-            <Tooltip content="Global leader in oncology and CNS, strong Alzheimer's pipeline">
-              Roche
-            </Tooltip>
-          </span>
-          <span className="text-blue-400 font-bold">$12.8B</span>
-        </div>
-        <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
-          <span className="font-medium text-gray-300">
-            <Tooltip content="Multiple sclerosis market leader with expanding CNS portfolio">
-              Novartis
-            </Tooltip>
-          </span>
-          <span className="text-blue-400 font-bold">$8.4B</span>
-        </div>
-        <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
-          <span className="font-medium text-gray-300">
-            <Tooltip content="Neurodegeneration specialist with approved Alzheimer's therapy">
-              Biogen
-            </Tooltip>
-          </span>
-          <span className="text-blue-400 font-bold">$6.2B</span>
-        </div>
-        <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
-          <span className="font-medium text-gray-300">
-            <Tooltip content="Diversified psychiatric drug portfolio with strong market position">
-              J&J
-            </Tooltip>
-          </span>
-          <span className="text-blue-400 font-bold">$5.9B</span>
-        </div>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        <Chip size="sm" variant="primary">Market Leaders</Chip>
-        <Chip size="sm" variant="success">Established</Chip>
-        <Chip size="sm" variant="info">Global Reach</Chip>
-      </div>
-    </IntelTile>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+    <div className="md:col-span-2">
+      <CompetitiveLandscape />
+    </div>
+    <div className="md:col-span-1">
+      <MarketSharePieChart />
+    </div>
 
     <IntelTile
       title="Biotech Innovation"
@@ -630,7 +592,7 @@ import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTri
 
 </div>
 
-<div id="recommendations">
+<div id="recommendations" className="section-container">
 
 ## Intelligence Recommendations
 
