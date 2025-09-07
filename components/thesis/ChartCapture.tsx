@@ -29,7 +29,8 @@ export default function ChartCapture({
       await new Promise(resolve => setTimeout(resolve, 500))
       
       const canvas = await html2canvas(chartRef.current, {
-        backgroundColor: '#ffffff',
+        // Use dark background to match app theme
+        backgroundColor: '#0E0F12',
         scale: 2, // Higher quality
         useCORS: true,
         allowTaint: true,
@@ -72,7 +73,7 @@ export default function ChartCapture({
           position: 'absolute',
           top: '-9999px',
           left: '-9999px',
-          backgroundColor: '#ffffff'
+          backgroundColor: '#0E0F12'
         }}
       >
         <ErrorBoundary

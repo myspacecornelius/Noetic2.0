@@ -1,7 +1,6 @@
 
 import styles from '../../components/cns.module.css';
-import dynamic from 'next/dynamic';
-const FitChart = dynamic(() => import('../../components/FitChart'), { ssr: false });
+import { FitChartMDX as FitChart } from '../../components/ChartComponents'
 
 <div className={styles.container}>
   <div className={styles.section}>

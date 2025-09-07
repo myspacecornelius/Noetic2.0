@@ -25,6 +25,19 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
   const [zoom, setZoom] = useState(1)
   const metricsData = useMetricsData()
 
+  // Define before usage inside useMemo to avoid TDZ errors
+  function getChartInsights(chartId: string) {
+    const insights = {
+      'market-line': 'The CNS market shows consistent growth at 10.4% CAGR, reaching $254.6B by 2030, providing substantial runway for consolidation strategy.',
+      'capital-doughnut': 'Strategic capital allocation prioritizes anchor acquisition (45%) and bolt-on growth (35%) with prudent reserves (20%).',
+      'noetic-os-radar': 'NoeticOS platform capabilities span all critical operational areas, with particular strength in data/AI and go-to-market functions.',
+      'platform-kpi-bar': 'Significant improvement opportunities exist across all KPIs, with integration speed and cross-sell rate showing highest potential impact.',
+      'value-creation-dual': 'Value creation accelerates through systematic revenue growth and margin expansion, reaching optimal scale by Year 4.',
+      'return-bar': 'Multiple return scenarios demonstrate strong downside protection with significant upside potential in favorable market conditions.'
+    } as const
+    return insights[chartId as keyof typeof insights] || 'Key insights and analysis for this metric.'
+  }
+
   // Generate preview pages based on template and selections
   const previewPages = useMemo(() => {
     if (!state.template) return []
@@ -209,17 +222,7 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
     return pages
   }, [state.template, state.selections, state.exportOptions, metricsData])
 
-  const getChartInsights = (chartId: string) => {
-    const insights = {
-      'market-line': 'The CNS market shows consistent growth at 10.4% CAGR, reaching $254.6B by 2030, providing substantial runway for consolidation strategy.',
-      'capital-doughnut': 'Strategic capital allocation prioritizes anchor acquisition (45%) and bolt-on growth (35%) with prudent reserves (20%).',
-      'noetic-os-radar': 'NoeticOS platform capabilities span all critical operational areas, with particular strength in data/AI and go-to-market functions.',
-      'platform-kpi-bar': 'Significant improvement opportunities exist across all KPIs, with integration speed and cross-sell rate showing highest potential impact.',
-      'value-creation-dual': 'Value creation accelerates through systematic revenue growth and margin expansion, reaching optimal scale by Year 4.',
-      'return-bar': 'Multiple return scenarios demonstrate strong downside protection with significant upside potential in favorable market conditions.'
-    }
-    return insights[chartId as keyof typeof insights] || 'Key insights and analysis for this metric.'
-  }
+  
 
   return (
     <div className="preview-panel">

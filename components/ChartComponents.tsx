@@ -73,3 +73,40 @@ export const ReturnBarChart = dynamic(
     ssr: false
   }
 )
+
+// Additional standalone charts used directly in MDX
+export const ValuationChartMDX = dynamic(
+  () => import('./ValuationChart'),
+  {
+    loading: () => (
+      <div className="flex items-center justify-center h-64 bg-gray-100 rounded animate-pulse">
+        <div className="text-gray-500">Loading chart...</div>
+      </div>
+    ),
+    ssr: false
+  }
+)
+
+export const KpiChartMDX = dynamic(
+  () => import('./KpiChart'),
+  {
+    loading: () => (
+      <div className="flex items-center justify-center h-64 bg-gray-100 rounded animate-pulse">
+        <div className="text-gray-500">Loading chart...</div>
+      </div>
+    ),
+    ssr: false
+  }
+)
+
+export const FitChartMDX = dynamic(
+  () => import('./FitChart'),
+  {
+    loading: () => (
+      <div className="flex items-center justify-center h-64 bg-gray-100 rounded animate-pulse">
+        <div className="text-gray-500">Loading chart...</div>
+      </div>
+    ),
+    ssr: false
+  }
+)
