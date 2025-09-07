@@ -278,7 +278,43 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
               onClick={() => setCurrentPage(index)}
             >
               <div className="thumbnail-preview">
-                <div className="thumbnail-number">{index + 1}</div>
+                <div className="thumbnail-header">
+                  <div className="header-bar"></div>
+                  <div className="page-number">{index + 1}</div>
+                </div>
+                <div className="thumbnail-content">
+                  <div className="content-blocks">
+                    {page.id === 'cover' && (
+                      <>
+                        <div className="block title-block"></div>
+                        <div className="block subtitle-block"></div>
+                        <div className="block metrics-block"></div>
+                      </>
+                    )}
+                    {page.id === 'executive-summary' && (
+                      <>
+                        <div className="block title-block"></div>
+                        <div className="block text-block"></div>
+                        <div className="block metrics-grid"></div>
+                        <div className="block text-block"></div>
+                      </>
+                    )}
+                    {page.id.includes('chart') || Object.keys(chartComponents).includes(page.id) && (
+                      <>
+                        <div className="block title-block"></div>
+                        <div className="block chart-block"></div>
+                        <div className="block insight-block"></div>
+                      </>
+                    )}
+                    {!page.id.includes('chart') && page.id !== 'cover' && page.id !== 'executive-summary' && !Object.keys(chartComponents).includes(page.id) && (
+                      <>
+                        <div className="block title-block"></div>
+                        <div className="block text-block"></div>
+                        <div className="block text-block"></div>
+                      </>
+                    )}
+                  </div>
+                </div>
                 <div className="thumbnail-title">{page.title}</div>
               </div>
             </div>

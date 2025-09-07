@@ -5,6 +5,7 @@ const meta = {
   'cns-acquisition': 'Acquisition',
   another: 'Scenarios',
   'thesis-builder': 'Builder',
+  'neural-mapper': 'Neural Mapper',
   about: 'About',
   contact: {
     title: 'Contact',

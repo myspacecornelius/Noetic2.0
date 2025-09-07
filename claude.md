@@ -1,87 +1,82 @@
-# Claude Creative Guide — Noetic 2.0 (Investor‑Grade)
+# CLAUDE.md — Engineering Guide
 
-This is an intentionally opinionated creative brief for elevating presentation quality without destabilizing data flow or routes. Treat it as direction, not a checklist.
+## Project Overview
+- Stack: Next.js 13 (pages router) + Nextra v3 (docs theme) + TypeScript
+- Purpose: Investor‑ready docs with charts and a “Thesis Builder” for exportable presentations
+- Branding: Noetic 2.0 — professional, data‑forward, clean UI
 
-**Non‑negotiables**
-- Do not change data shapes, IDs, or the select → preview → export wiring.
-- Keep charts client‑only where they already are; avoid SSR regressions.
-- MDX top level stays import/export‑only.
+## Runbook
+- Prereqs: Node 18.x or 20.x recommended (use `nvm`), npm preferred
+- Install: `npm install` (package‑lock present). If you prefer: `pnpm i`
+- Dev: `npm run dev` then open http://localhost:3000
+- Build: `npm run build`
+- Prod: `npm start`
 
-**Atmosphere**
-- Intent: quiet confidence, studio graphite, precision tools. Zero gloss.
-- Mood: carbon, instrument panel, lab‑grade. Accents feel electrical, not neon.
+### Dev Server Troubleshooting
+- Port/permission errors (e.g., EPERM listen 0.0.0.0): run `npx next dev -H 127.0.0.1 -p 3000`
+- Clear cache: delete `.next` then retry `npm run dev`
+- Node version: prefer 18.x or 20.x. Avoid experimental 22.x for now
+- TypeScript stops server: fix compile errors; dev server won’t serve pages until TS passes
+  - Recently fixed: duplicate `else if (selection.type === 'phase')` in `components/thesis/PreviewPanel.tsx` which caused a TS narrowing error and blocked builds
 
-**Visual North Star**
-- Surfaces: no pure white slabs. Pages, cards, tables, and previews sit on deep neutrals.
-- Type: strong hierarchy; body copy is soft gray, not stark white.
-- Brand: minimal mark; color accents restrained and consistent.
-- Rhythm: generous negative space, 8px base grid, predictable gutters.
+## Repo Structure
+- `pages/` — MDX pages + navigation
+  - `index.mdx` (landing), `advanced.mdx`, `another.mdx`, `thesis-builder.mdx`
+  - `cns-acquisition/` section with `criteria.mdx`
+  - `_app.tsx` wires global styles and chart config
+  - `_meta.tsx` controls sidebar/nav ordering and labels
+- `components/`
+  - Charts: `NoeticCharts.tsx` (MarketLine, CapitalDoughnut, NoeticOsRadar, PlatformKpiBar, ValueCreationDualAxis, ReturnBar)
+  - Dynamic imports: `ChartComponents.tsx` (code splitting + SSR false)
+  - Layout/UI: `DashboardCard.tsx`, `PhaseTabs.tsx`, `Phases.tsx`, `ErrorBoundary.tsx`
+  - Thesis Builder: `components/thesis/` — `ThesisBuilder.tsx`, `DataSelector.tsx`, `PreviewPanel.tsx`, `ExportControls.tsx`, `ChartCapture.tsx`, `DynamicThesisBuilder.tsx`, `TemplateSelector.tsx`
+- `lib/chart-config.ts` — registers Chart.js parts and exports `commonChartOptions` + `chartColors`
+- `data/noetic-metrics.json` — canonical data for charts, phases, risks, and capital plan
+- `hooks/useMetricsData.ts` — memoized data access + small helpers (phase lookup, risk filter)
+- `styles/global.css` — global styles, utility classes (hero, dash-grid, risk chips, etc.)
+- `theme.config.tsx` — Nextra theme config (branding, SEO, head, footer)
 
-**Core Tokens (directional)**
-- Background: `#0B0C0F`
-- Surface 1 / 2: `#14161A` / `#1C1F25`
-- Text / Muted: `#E8EAF0` / `#A7AAB3`
-- Primary (Noetic): `#667EEA` with tints `#7D8CF1`, `#95A0F3`
-- Accent (Infrared): `#D13A5B` (never full‑screen fills)
-- Success / Warn / Danger: desaturated `#2FB47C` / `#E2A64A` / `#E26666`
-- Borders: `#252932` single‑weight; increase only for emphasis
+## Implementation Guidelines
+- TypeScript: add prop interfaces, avoid `any`, keep discriminated unions consistent with `types/data.ts`
+- Components:
+  - Wrap chart renderings with `ErrorBoundary`
+  - Prefer dynamic imports for chart components to keep TTI fast
+  - Keep `className` passthroughs and accessibility attrs (`aria-*`)
+- Charts:
+  - Use `commonChartOptions` and `chartColors` from `lib/chart-config.ts`
+  - Read from `data/noetic-metrics.json` via `useMetricsData()` where possible
+- Styling:
+  - Reuse existing classes (`hero`, `dash-grid`, `card`, `phase-tabs`, `risk-chip`)
+  - Keep CSS changes minimal and consistent with the current design
+- Content/Docs:
+  - New pages → add `.mdx` in `pages/` and entries in `pages/_meta.tsx`
+  - Keep tone and structure professional and investor‑friendly
 
-**Typography (feel, not rules)**
-- Headings: heavy (800), slightly tight tracking, minimal shadow, no gradient fills.
-- Body: 400–500 weight, −1% letter spacing, max 70ch, 1.55–1.7 line height.
-- Links: default muted → on hover brand primary; underline only on hover.
+## Common Tasks
+- Add a new chart:
+  1) Extend `data/noetic-metrics.json` and types if needed
+  2) Implement in `components/NoeticCharts.tsx` and wire dynamically via `ChartComponents.tsx`
+  3) Surface in pages or Thesis Builder
+- Add a new phase or metric:
+  - Update `data/noetic-metrics.json` and consume via `useMetricsData()`
+- Extend Thesis Builder:
+  - Use `types/data.ts` unions; update `DataSelector`, `PreviewPanel`, `ExportControls` deterministically
+- Export features (PDF/PPTX):
+  - Deps available: `html2canvas`, `jspdf`, `pptxgenjs` (see `ChartCapture.tsx` and `ExportControls.tsx`)
 
-**Layout & Composition**
-- Sidebar: one step lighter than page shell; active item has a slim 2px brand bar and soft background—not a full bright pill.
-- Cards: dark surface, soft 1px border, 12–16px radius; no top neon stripe.
-- Buttons: primary = filled primary; secondary = subtle outline on surface; success/error avoid traffic‑light saturation.
-- Chips: tinted on dark; text at 90% opacity; consistent height.
+## Quality & CI
+- Lint: `npm run lint` or `npm run lint:fix` (rules via Next/ESLint)
+- Type check: `npm run type-check`
+- Build checks: GitHub Actions (if configured) runs install → lint → build
 
-**Charts on Dark**
-- Transparent chart canvas; grid lines = low‑alpha gray; ticks/labels = soft gray; legend = subtle.
-- Colors pull from primary/secondary plus a single accent; avoid rainbow palettes.
+## Known Issues & Notes
+- Sandbox/CI environments may block port binding; use `-H 127.0.0.1` if needed
+- ESLint warnings in `components/thesis/ChartCapture.tsx` (`react-hooks/exhaustive-deps`, `@next/next/no-img-element`) are safe to address incrementally; prefer real fixes over disabling
+- README mentions `pnpm`; project currently uses npm (see `package-lock.json`). Either works locally if used consistently
 
-**Thesis Builder — Critical Upgrades**
-- Preview Stage: elevated dark surface with generous padding; no “void with spinner.”
-- Thumbnails: larger, legible (min ~120×90), show a thin header bar and a faint content block to convey slide chrome.
-- Capture Flow: only attempt capture after the chart reports ready; show a calm skeleton (not a spinner) while waiting; background stays dark so previews don’t flash white.
-- Empty State: a single sentence with an action, e.g., “Select data and a template to preview.”
-
-**Brand Integration**
-- Header: replace text logo with the real Noetic mark (mono/light variant on dark). Keep size small; avoid big mastheads.
-- Kill the gradient hero: use a neutral surface block with bold heading and muted subline. Optional: subtle noise or vignette, but no animation.
-
-**Micro‑motion**
-- Durations 120–180ms, ease‑out; shadows and scale < 1.04.
-- Respect `prefers-reduced-motion`; provide non‑motion affordances.
-
-**Do / Don’t**
-- Do: one accent per view, consistent spacing, quiet borders.
-- Don’t: white backgrounds, neon badges, gradient text, oversized shadows, or rainbow chart palettes.
-
-**Acceptance Criteria**
-- No pure white blocks on dark pages (cards, tables, previews, placeholders, selected lists).
-- Sidebar is lighter than the shell; active state is clear but not glowing.
-- Header displays the real Noetic mark; hero is neutral, not gradient.
-- Chart thumbnails are readable; no perpetual “Capturing…” loops.
-- Body copy isn’t stark white; warnings about stylesheet in head are gone; type checks pass.
-
-**Touchpoints (keep changes surgical)**
-- Shell & surfaces: `styles/global.css`
-- Chart defaults on dark: `lib/chart-config.ts`
-- Builder experience (preview, thumbnails, skeletons): `components/thesis/PreviewPanel.tsx`, `components/thesis/ChartCapture.tsx`, `styles/global.css`
-- MDX pages using charts: `pages/cns-acquisition/*.mdx` (imports only)
-- Brand mark: `theme.config.tsx` (logo swap only)
-
-**Creative Levers (use sparingly)**
-- Texture: a 2–3% monochrome noise overlay on hero/cards can add materiality—never animate it.
-- Accent beam: a single 2px accent line (brand or infrared) can anchor a section header; avoid full‑bleed bars.
-- Depth: layered shadows in 2 steps max; never blurrier than 30px on large cards.
-
-**Quality Bar**
-- If a component requires white to be legible, the composition is wrong—fix spacing/contrast instead.
-- If a color draws the eye, it must encode meaning (state/emphasis), not style.
-- If a skeleton shows for >600ms, prefer a shaped placeholder over a spinner.
+## Deployment
+- Vercel config present via `vercel.json` and theme settings in `theme.config.tsx`
+- Custom script: `npm run deploy` (see `scripts/deploy.sh`)
 
 — End —
 
