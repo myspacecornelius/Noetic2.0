@@ -3003,11 +3003,9 @@ pre { border: 1px solid var(--border); }
 }
 
 /* Focus states */
-.focus-ring {
-  focus-visible:outline: none;
-  focus-visible:ring: 2px solid var(--primary);
-  focus-visible:ring-offset: 2px;
-  focus-visible:ring-offset-color: var(--bg);
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--brand-700), 0 0 0 4px var(--bg);
 }
 
 /* Loading shimmer effect */
