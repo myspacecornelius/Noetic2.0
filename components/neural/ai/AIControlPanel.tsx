@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export interface AISettings {
   predictions: {
     enabled: boolean
-    timeHorizon: '1M' | '3M' | '6M' | '1Y'
+    timeHorizon: '3M' | '6M' | '1Y' | '2Y+'
     minProbability: number
     showGhostSynapses: boolean
   }
@@ -82,10 +82,10 @@ export default function AIControlPanel({
                     })}
                     className="control-select"
                   >
-                    <option value="1M">1 Month</option>
                     <option value="3M">3 Months</option>
                     <option value="6M">6 Months</option>
                     <option value="1Y">1 Year</option>
+                    <option value="2Y+">2+ Years</option>
                   </select>
                 </label>
                 

@@ -3,6 +3,8 @@ title: Market Intelligence
 ---
 
 import { Callout } from 'nextra/components'
+import { CollapsibleSection, StatBox, Chip, Tooltip, StickySubnav, AnimatedCounter, formatters } from '../components/ui'
+import { Activity, TrendingUp, Users, Building2, Target, Zap, BrainCog, AlertTriangle, Globe, DollarSign, BarChart3 } from 'lucide-react'
 
 # Market Intelligence
 
@@ -11,97 +13,341 @@ import { Callout } from 'nextra/components'
   <p>Real-time market insights, competitive analysis, and strategic intelligence for informed investment decisions in the central nervous system therapeutics landscape.</p>
 </div>
 
+<StickySubnav
+  items={[
+    { id: 'dashboard', label: 'Dashboard', href: '#dashboard', icon: <BarChart3 className="w-4 h-4" /> },
+    { id: 'competitive', label: 'Competitive', href: '#competitive', icon: <Target className="w-4 h-4" /> },
+    { id: 'investment', label: 'Investment', href: '#investment', icon: <DollarSign className="w-4 h-4" /> },
+    { id: 'technology', label: 'Technology', href: '#technology', icon: <Zap className="w-4 h-4" /> },
+    { id: 'regulatory', label: 'Regulatory', href: '#regulatory', icon: <AlertTriangle className="w-4 h-4" /> },
+    { id: 'recommendations', label: 'Actions', href: '#recommendations', icon: <Activity className="w-4 h-4" /> }
+  ]}
+/>
+
+<div id="dashboard">
+
 ## Intelligence Dashboard
 
-### Market Overview
-
-**Global CNS Market Dynamics (2024)**
-- **Market Size**: $125.2B (current year)
-- **Growth Rate**: 15.3% CAGR (2024-2030)
-- **Key Drivers**: Aging population, breakthrough therapies, digital health integration
-- **Geographic Distribution**: North America (45%), Europe (28%), Asia-Pacific (18%), Rest of World (9%)
+<CollapsibleSection 
+  title="Market Overview" 
+  defaultOpen={true}
+  icon={<Globe className="w-5 h-5" />}
+  variant="card"
+>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <StatBox
+      label="Market Size (2024)"
+      value={125.2}
+      prefix="$"
+      suffix="B"
+      icon={<DollarSign className="w-5 h-5" />}
+      variant="primary"
+      trend={{ value: 15.3, direction: 'up', label: 'CAGR 2024-2030' }}
+      tooltip="Current global CNS market size with strong growth trajectory driven by innovation and demographics"
+    />
+    <StatBox
+      label="Growth Rate"
+      value={15.3}
+      suffix="% CAGR"
+      icon={<TrendingUp className="w-5 h-5" />}
+      variant="success"
+      tooltip="Compound Annual Growth Rate from 2024-2030"
+    />
+    <StatBox
+      label="North America Share"
+      value={45}
+      suffix="%"
+      icon={<Globe className="w-5 h-5" />}
+      variant="warning"
+      tooltip="North American market dominance in CNS therapeutics"
+    />
+    <StatBox
+      label="Breakthrough Therapies"
+      value={18}
+      icon={<Zap className="w-5 h-5" />}
+      variant="danger"
+      tooltip="FDA breakthrough therapy designations in 2024"
+    />
+  </div>
+  
+  <div className="bg-gray-800/30 rounded-lg p-4 border border-gray-700/50 mb-4">
+    <h4 className="text-blue-300 font-semibold mb-3 flex items-center gap-2">
+      <Globe className="w-4 h-4" />
+      Geographic Distribution
+    </h4>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="text-center">
+        <div className="text-2xl font-bold text-blue-400">45%</div>
+        <div className="text-sm text-gray-400">North America</div>
+      </div>
+      <div className="text-center">
+        <div className="text-2xl font-bold text-green-400">28%</div>
+        <div className="text-sm text-gray-400">Europe</div>
+      </div>
+      <div className="text-center">
+        <div className="text-2xl font-bold text-amber-400">18%</div>
+        <div className="text-sm text-gray-400">Asia-Pacific</div>
+      </div>
+      <div className="text-center">
+        <div className="text-2xl font-bold text-gray-400">9%</div>
+        <div className="text-sm text-gray-400">Rest of World</div>
+      </div>
+    </div>
+  </div>
+  
+  <div className="flex flex-wrap gap-2">
+    <Chip variant="success" icon={<Users className="w-3 h-3" />}>
+      Aging Population
+    </Chip>
+    <Chip variant="primary" icon={<Zap className="w-3 h-3" />}>
+      Breakthrough Therapies
+    </Chip>
+    <Chip variant="info" icon={<Activity className="w-3 h-3" />}>
+      Digital Health Integration
+    </Chip>
+  </div>
+</CollapsibleSection>
 
 <Callout type="info">
-**Intelligence Alert**: Recent FDA breakthrough therapy designations for 3 CNS assets signal accelerated regulatory pathway opportunities for strategic acquisitions.
+  **Intelligence Alert**: Recent FDA breakthrough therapy designations for 3 CNS assets signal accelerated regulatory pathway opportunities for strategic acquisitions.
 </Callout>
 
-### Competitive Landscape
-
-**Market Leaders & Positioning**
-
-<div className="intelligence-grid">
-  <div className="intel-card">
-    <h3>🏢 Big Pharma (40% Market Share)</h3>
-    <ul>
-      <li><strong>Roche</strong> - $12.8B CNS revenue, strong Alzheimer's pipeline</li>
-      <li><strong>Novartis</strong> - $8.4B CNS revenue, MS leadership position</li>
-      <li><strong>Biogen</strong> - $6.2B CNS revenue, neurodegeneration focus</li>
-      <li><strong>Johnson & Johnson</strong> - $5.9B CNS revenue, psychiatric drugs</li>
-    </ul>
-  </div>
-
-  <div className="intel-card">
-    <h3>🧪 Biotech Innovation (35% Market Share)</h3>
-    <ul>
-      <li><strong>Emerging Leaders</strong> - 15 companies with $1B+ valuations</li>
-      <li><strong>Pipeline Assets</strong> - 250+ Phase II+ CNS programs</li>
-      <li><strong>Investment Volume</strong> - $8.2B in 2024 funding</li>
-      <li><strong>Success Rate</strong> - 12% Phase I to approval</li>
-    </ul>
-  </div>
-
-  <div className="intel-card">
-    <h3>💡 Digital Health (15% Market Share)</h3>
-    <ul>
-      <li><strong>Digital Therapeutics</strong> - FDA-approved apps and devices</li>
-      <li><strong>AI/ML Platforms</strong> - Drug discovery and diagnostics</li>
-      <li><strong>Remote Monitoring</strong> - Patient tracking and outcomes</li>
-      <li><strong>Precision Medicine</strong> - Biomarker-driven approaches</li>
-    </ul>
-  </div>
-
-  <div className="intel-card">
-    <h3>🔬 Research Institutions (10% Market Share)</h3>
-    <ul>
-      <li><strong>Academic Medical Centers</strong> - Clinical trial leadership</li>
-      <li><strong>Government Labs</strong> - NIH/NIMH research programs</li>
-      <li><strong>Technology Transfer</strong> - Early-stage asset sourcing</li>
-      <li><strong>Collaborative Networks</strong> - Public-private partnerships</li>
-    </ul>
-  </div>
 </div>
+
+<div id="competitive">
+
+<CollapsibleSection 
+  title="Competitive Landscape" 
+  defaultOpen={true}
+  icon={<Target className="w-5 h-5" />}
+  variant="card"
+>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="intel-card interactive-element glow-on-hover smooth-corners">
+      <div className="flex items-center gap-3 mb-4">
+        <Building2 className="w-6 h-6 text-blue-400" />
+        <div>
+          <h3 className="text-blue-400 font-semibold">Big Pharma</h3>
+          <div className="text-sm text-gray-400">40% Market Share</div>
+        </div>
+      </div>
+      
+      <div className="space-y-3">
+        <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
+          <span className="font-medium text-gray-300">
+            <Tooltip content="Global leader in oncology and CNS, strong Alzheimer's pipeline">
+              Roche
+            </Tooltip>
+          </span>
+          <span className="text-blue-400 font-bold">$12.8B</span>
+        </div>
+        <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
+          <span className="font-medium text-gray-300">
+            <Tooltip content="Multiple sclerosis market leader with expanding CNS portfolio">
+              Novartis
+            </Tooltip>
+          </span>
+          <span className="text-blue-400 font-bold">$8.4B</span>
+        </div>
+        <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
+          <span className="font-medium text-gray-300">
+            <Tooltip content="Neurodegeneration specialist with approved Alzheimer's therapy">
+              Biogen
+            </Tooltip>
+          </span>
+          <span className="text-blue-400 font-bold">$6.2B</span>
+        </div>
+        <div className="flex justify-between items-center p-2 bg-gray-800/30 rounded">
+          <span className="font-medium text-gray-300">
+            <Tooltip content="Diversified psychiatric drug portfolio with strong market position">
+              J&J
+            </Tooltip>
+          </span>
+          <span className="text-blue-400 font-bold">$5.9B</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="intel-card interactive-element glow-on-hover smooth-corners">
+      <div className="flex items-center gap-3 mb-4">
+        <BrainCog className="w-6 h-6 text-green-400" />
+        <div>
+          <h3 className="text-green-400 font-semibold">Biotech Innovation</h3>
+          <div className="text-sm text-gray-400">35% Market Share</div>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <StatBox
+          label="Unicorns"
+          value={15}
+          size="sm"
+          tooltip="Companies with $1B+ valuations"
+        />
+        <StatBox
+          label="Pipeline Programs"
+          value={250}
+          suffix="+"
+          size="sm"
+          tooltip="Phase II+ CNS programs"
+        />
+        <StatBox
+          label="2024 Funding"
+          value={8.2}
+          prefix="$"
+          suffix="B"
+          size="sm"
+          tooltip="Total investment volume"
+        />
+        <StatBox
+          label="Success Rate"
+          value={12}
+          suffix="%"
+          size="sm"
+          tooltip="Phase I to approval rate"
+        />
+      </div>
+      
+      <div className="flex flex-wrap gap-2">
+        <Chip size="sm" variant="success">Emerging Leaders</Chip>
+        <Chip size="sm" variant="primary">High Innovation</Chip>
+        <Chip size="sm" variant="warning">High Risk</Chip>
+      </div>
+    </div>
+
+    <div className="intel-card interactive-element glow-on-hover smooth-corners">
+      <div className="flex items-center gap-3 mb-4">
+        <Zap className="w-6 h-6 text-amber-400" />
+        <div>
+          <h3 className="text-amber-400 font-semibold">Digital Health</h3>
+          <div className="text-sm text-gray-400">15% Market Share</div>
+        </div>
+      </div>
+      
+      <div className="space-y-3">
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Digital Therapeutics</div>
+          <div className="text-sm text-gray-400">FDA-approved apps and devices</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">AI/ML Platforms</div>
+          <div className="text-sm text-gray-400">Drug discovery and diagnostics</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Remote Monitoring</div>
+          <div className="text-sm text-gray-400">Patient tracking and outcomes</div>
+        </div>
+      </div>
+      
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="info">Scalable</Chip>
+        <Chip size="sm" variant="warning">Reimbursement Risk</Chip>
+      </div>
+    </div>
+
+    <div className="intel-card interactive-element glow-on-hover smooth-corners">
+      <div className="flex items-center gap-3 mb-4">
+        <Users className="w-6 h-6 text-purple-400" />
+        <div>
+          <h3 className="text-purple-400 font-semibold">Research Institutions</h3>
+          <div className="text-sm text-gray-400">10% Market Share</div>
+        </div>
+      </div>
+      
+      <div className="space-y-3">
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Academic Medical Centers</div>
+          <div className="text-sm text-gray-400">Clinical trial leadership</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Government Labs</div>
+          <div className="text-sm text-gray-400">NIH/NIMH research programs</div>
+        </div>
+        <div className="bg-gray-800/30 rounded p-3">
+          <div className="font-medium text-gray-300 mb-1">Technology Transfer</div>
+          <div className="text-sm text-gray-400">Early-stage asset sourcing</div>
+        </div>
+      </div>
+      
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Chip size="sm" variant="default">Early Stage</Chip>
+        <Chip size="sm" variant="info">Academic</Chip>
+      </div>
+    </div>
+  </div>
+</CollapsibleSection>
+
+</div>
+
+<div id="investment">
 
 ## Investment Intelligence
 
-### Deal Flow Analysis
-
-**Recent Transaction Activity (Last 12 Months)**
-
-<div className="deal-metrics">
-  <div className="metric-card">
-    <div className="metric-value">22</div>
-    <div className="metric-label">IPO Exits</div>
-    <div className="metric-detail">Median valuation: $1.2B</div>
+<CollapsibleSection 
+  title="Deal Flow Analysis" 
+  defaultOpen={true}
+  icon={<DollarSign className="w-5 h-5" />}
+  variant="card"
+>
+  <p className="text-gray-300 mb-6 leading-relaxed">
+    Recent transaction activity over the last 12 months demonstrates strong investor appetite and premium valuations in the CNS space.
+  </p>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <StatBox
+      label="IPO Exits"
+      value={22}
+      icon={<TrendingUp className="w-5 h-5" />}
+      variant="success"
+      tooltip="Companies that went public in the last 12 months"
+      trend={{ value: 25, direction: 'up', label: 'vs. prior year' }}
+    />
+    <StatBox
+      label="M&A Transactions"
+      value={15}
+      icon={<Building2 className="w-5 h-5" />}
+      variant="primary"
+      tooltip="Strategic acquisitions and mergers completed"
+      trend={{ value: 8.5, direction: 'up', label: 'avg multiple' }}
+    />
+    <StatBox
+      label="Avg Series B"
+      value={45}
+      prefix="$"
+      suffix="M"
+      icon={<DollarSign className="w-5 h-5" />}
+      variant="warning"
+      tooltip="Average Series B funding round size"
+    />
+    <StatBox
+      label="Median Exit Multiple"
+      value={3.2}
+      suffix="x"
+      icon={<BarChart3 className="w-5 h-5" />}
+      variant="danger"
+      tooltip="Multiple of invested capital at exit"
+      trend={{ value: 5.8, direction: 'up', label: 'top quartile' }}
+    />
   </div>
   
-  <div className="metric-card">
-    <div className="metric-value">15</div>
-    <div className="metric-label">M&A Transactions</div>
-    <div className="metric-detail">Average multiple: 8.5x revenue</div>
+  <div className="mt-6 bg-gray-800/30 rounded-lg p-4 border border-gray-700/50">
+    <h4 className="text-blue-300 font-semibold mb-3">Key Transaction Insights</h4>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="text-center">
+        <div className="text-lg font-bold text-green-400">$1.2B</div>
+        <div className="text-sm text-gray-400">Median IPO Valuation</div>
+      </div>
+      <div className="text-center">
+        <div className="text-lg font-bold text-amber-400">$25M-$80M</div>
+        <div className="text-sm text-gray-400">Series B Range</div>
+      </div>
+      <div className="text-center">
+        <div className="text-lg font-bold text-blue-400">8.5x</div>
+        <div className="text-sm text-gray-400">Avg Revenue Multiple</div>
+      </div>
+    </div>
   </div>
-  
-  <div className="metric-card">
-    <div className="metric-value">$45M</div>
-    <div className="metric-label">Avg Series B</div>
-    <div className="metric-detail">Range: $25M - $80M</div>
-  </div>
-  
-  <div className="metric-card">
-    <div className="metric-value">3.2x</div>
-    <div className="metric-label">Median Exit Multiple</div>
-    <div className="metric-detail">Top quartile: 5.8x</div>
-  </div>
-</div>
+</CollapsibleSection>
 
 **Strategic Acquisition Targets**
 

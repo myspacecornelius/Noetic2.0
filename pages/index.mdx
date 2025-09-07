@@ -3,6 +3,8 @@ title: Strategic Transformation
 ---
 
 import { Callout } from 'nextra/components'
+import { CollapsibleSection, StatBox, Chip, Tooltip, StickySubnav, AnimatedCounter, formatters } from '../components/ui'
+import { Target, TrendingUp, Zap, Globe, Building2, BrainCog, ChartLine, Users } from 'lucide-react'
 
 <div className="hero">
   <div className="hero-content">
@@ -20,72 +22,250 @@ import { Callout } from 'nextra/components'
 </div>
 
 <div className="transformation-overview">
-  <div className="market-opportunity">
-    <h2>Market Opportunity</h2>
-    <div className="opportunity-stats">
-      <div className="stat-card">
-        <div className="stat-value">$140B+</div>
-        <div className="stat-label">CNS Market Size (2030)</div>
-      </div>
-      <div className="stat-card">
-        <div className="stat-value">15%</div>
-        <div className="stat-label">Annual Market Growth</div>
-      </div>
-      <div className="stat-card">
-        <div className="stat-value">4</div>
-        <div className="stat-label">Strategic Pathways</div>
-      </div>
+  <CollapsibleSection 
+    title="Market Opportunity" 
+    defaultOpen={true}
+    icon={<ChartLine className="w-5 h-5" />}
+    variant="card"
+  >
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <StatBox
+        label="CNS Market Size (2030)"
+        value={140}
+        prefix="$"
+        suffix="B+"
+        icon={<TrendingUp className="w-5 h-5" />}
+        variant="primary"
+        trend={{ value: 15, direction: 'up', label: 'Annual growth rate' }}
+        tooltip="The global central nervous system market is projected to reach $140B+ by 2030, driven by aging populations and breakthrough treatments."
+      />
+      <StatBox
+        label="Annual Market Growth"
+        value={15}
+        suffix="%"
+        icon={<ChartLine className="w-5 h-5" />}
+        variant="success"
+        tooltip="Sustained double-digit growth driven by innovative therapies and expanding patient populations."
+      />
+      <StatBox
+        label="Strategic Pathways"
+        value={4}
+        icon={<Target className="w-5 h-5" />}
+        variant="warning"
+        tooltip="Four distinct strategic pathways for market entry and value creation."
+      />
     </div>
-  </div>
+    
+    <div className="flex flex-wrap gap-2 mb-4">
+      <Chip variant="primary" icon={<BrainCog className="w-3 h-3" />}>
+        Neurodegeneration
+      </Chip>
+      <Chip variant="success" icon={<Users className="w-3 h-3" />}>
+        Mental Health
+      </Chip>
+      <Chip variant="warning">Pain Management</Chip>
+      <Chip variant="info">Neurostimulation</Chip>
+      <Chip variant="default">Digital Therapeutics</Chip>
+    </div>
+  </CollapsibleSection>
 
   <Callout type="info">
     **Strategic Vision**: Transform from traditional venture capital to an integrated CNS operating company, leveraging deep sector expertise and operational capabilities to capture unprecedented value across the central nervous system healthcare continuum.
   </Callout>
 
-  ## Four Strategic Pathways
+  <CollapsibleSection 
+    title="Four Strategic Pathways" 
+    defaultOpen={true}
+    icon={<Target className="w-5 h-5" />}
+    variant="card"
+  >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="pathway-card interactive-element glow-on-hover smooth-corners">
+        <div className="flex items-center gap-3 mb-3">
+          <Target className="w-6 h-6 text-blue-400" />
+          <h3 className="text-blue-400 font-semibold">
+            <Tooltip content="Strategic acquisition of a foundational company to serve as the operational base for expansion">
+              Anchor Acquisition
+            </Tooltip>
+          </h3>
+        </div>
+        <p className="text-gray-300 leading-relaxed">Identify and acquire a flagship CNS company with proven revenue streams, strong market position, and expansion potential. Forms the operational foundation for our transformation.</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Chip size="sm" variant="primary">Revenue-Generating</Chip>
+          <Chip size="sm" variant="success">Market Leader</Chip>
+          <Chip size="sm" variant="warning">Platform Ready</Chip>
+        </div>
+      </div>
+      
+      <div className="pathway-card interactive-element glow-on-hover smooth-corners">
+        <div className="flex items-center gap-3 mb-3">
+          <Building2 className="w-6 h-6 text-green-400" />
+          <h3 className="text-green-400 font-semibold">
+            <Tooltip content="Sequential acquisitions of complementary companies to build an integrated platform">
+              Bolt-On Integration
+            </Tooltip>
+          </h3>
+        </div>
+        <p className="text-gray-300 leading-relaxed">Systematically acquire complementary CNS assets to expand market reach, enhance capabilities, and drive synergistic value creation across the integrated platform.</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Chip size="sm" variant="success">Synergistic</Chip>
+          <Chip size="sm" variant="info">Complementary</Chip>
+          <Chip size="sm" variant="primary">Value-Accretive</Chip>
+        </div>
+      </div>
+      
+      <div className="pathway-card interactive-element glow-on-hover smooth-corners">
+        <div className="flex items-center gap-3 mb-3">
+          <Zap className="w-6 h-6 text-amber-400" />
+          <h3 className="text-amber-400 font-semibold">
+            <Tooltip content="Investment in breakthrough technologies and innovative treatment modalities">
+              Technology Acceleration
+            </Tooltip>
+          </h3>
+        </div>
+        <p className="text-gray-300 leading-relaxed">Invest in cutting-edge CNS technologies, digital health solutions, and innovative treatment modalities to maintain competitive advantage and drive organic growth.</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Chip size="sm" variant="warning">Innovation</Chip>
+          <Chip size="sm" variant="danger">Breakthrough</Chip>
+          <Chip size="sm" variant="info">Digital Health</Chip>
+        </div>
+      </div>
+      
+      <div className="pathway-card interactive-element glow-on-hover smooth-corners">
+        <div className="flex items-center gap-3 mb-3">
+          <Globe className="w-6 h-6 text-cyan-400" />
+          <h3 className="text-cyan-400 font-semibold">
+            <Tooltip content="Geographic and therapeutic expansion leveraging the integrated platform">
+              Market Expansion
+            </Tooltip>
+          </h3>
+        </div>
+        <p className="text-gray-300 leading-relaxed">Leverage integrated platform to enter new therapeutic areas, geographic markets, and patient populations while optimizing operational efficiency.</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Chip size="sm" variant="info">Global Reach</Chip>
+          <Chip size="sm" variant="success">New Markets</Chip>
+          <Chip size="sm" variant="primary">Efficiency</Chip>
+        </div>
+      </div>
+    </div>
+  </CollapsibleSection>
 
-  <div className="pathways-grid">
-    <div className="pathway-card">
-      <h3>🎯 Anchor Acquisition</h3>
-      <p>Identify and acquire a flagship CNS company with proven revenue streams, strong market position, and expansion potential. Forms the operational foundation for our transformation.</p>
+  <CollapsibleSection 
+    title="Value Creation Framework" 
+    defaultOpen={false}
+    icon={<ChartLine className="w-5 h-5" />}
+    variant="card"
+  >
+    <p className="text-gray-300 mb-6 leading-relaxed">
+      Our transformation strategy is built on five distinct phases, each designed to maximize value creation while managing execution risk:
+    </p>
+    
+    <div className="space-y-4">
+      <div className="flex items-start gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50">
+        <div className="flex-shrink-0 w-8 h-8 bg-blue-900/50 text-blue-300 rounded-full flex items-center justify-center font-bold text-sm">0</div>
+        <div>
+          <h4 className="text-blue-300 font-semibold mb-1">
+            <Tooltip content="Establishing the operational foundation and intelligence gathering capabilities">
+              Foundation
+            </Tooltip>
+          </h4>
+          <p className="text-gray-400 text-sm">Establish operational infrastructure and market intelligence</p>
+        </div>
+      </div>
+      
+      <div className="flex items-start gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50">
+        <div className="flex-shrink-0 w-8 h-8 bg-green-900/50 text-green-300 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+        <div>
+          <h4 className="text-green-300 font-semibold mb-1">
+            <Tooltip content="Strategic acquisition and integration of the flagship platform company">
+              Anchor
+            </Tooltip>
+          </h4>
+          <p className="text-gray-400 text-sm">Acquire and integrate flagship CNS company</p>
+        </div>
+      </div>
+      
+      <div className="flex items-start gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50">
+        <div className="flex-shrink-0 w-8 h-8 bg-amber-900/50 text-amber-300 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+        <div>
+          <h4 className="text-amber-300 font-semibold mb-1">
+            <Tooltip content="Sequential strategic acquisitions to build platform capabilities">
+              Bolt-Ons
+            </Tooltip>
+          </h4>
+          <p className="text-gray-400 text-sm">Strategic acquisitions to expand platform capabilities</p>
+        </div>
+      </div>
+      
+      <div className="flex items-start gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50">
+        <div className="flex-shrink-0 w-8 h-8 bg-purple-900/50 text-purple-300 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+        <div>
+          <h4 className="text-purple-300 font-semibold mb-1">
+            <Tooltip content="Operational optimization and synergy realization across the platform">
+              Scale
+            </Tooltip>
+          </h4>
+          <p className="text-gray-400 text-sm">Optimize operations and drive synergistic value creation</p>
+        </div>
+      </div>
+      
+      <div className="flex items-start gap-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700/50">
+        <div className="flex-shrink-0 w-8 h-8 bg-red-900/50 text-red-300 rounded-full flex items-center justify-center font-bold text-sm">4</div>
+        <div>
+          <h4 className="text-red-300 font-semibold mb-1">
+            <Tooltip content="Value maximization through strategic exit opportunities">
+              Exit
+            </Tooltip>
+          </h4>
+          <p className="text-gray-400 text-sm">Maximize value realization through strategic exit opportunities</p>
+        </div>
+      </div>
+    </div>
+  </CollapsibleSection>
+
+  <CollapsibleSection 
+    title="Investment Thesis" 
+    defaultOpen={false}
+    icon={<BrainCog className="w-5 h-5" />}
+    variant="card"
+  >
+    <p className="text-gray-300 mb-6 leading-relaxed">
+      The central nervous system represents one of healthcare's most significant untapped opportunities. With an aging global population, increasing prevalence of neurological disorders, and breakthrough innovations in treatment modalities, the CNS market is positioned for sustained growth.
+    </p>
+    
+    <div className="bg-gray-800/30 rounded-lg p-5 border border-gray-700/50">
+      <h4 className="text-blue-300 font-semibold mb-4 flex items-center gap-2">
+        <TrendingUp className="w-4 h-4" />
+        Our Competitive Advantages
+      </h4>
+      <div className="space-y-3">
+        <div className="flex items-start gap-3">
+          <div className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></div>
+          <span className="text-gray-300">Deep sector expertise and operational capabilities</span>
+        </div>
+        <div className="flex items-start gap-3">
+          <div className="w-2 h-2 bg-green-400 rounded-full mt-2 flex-shrink-0"></div>
+          <span className="text-gray-300">Proven track record in CNS investments and value creation</span>
+        </div>
+        <div className="flex items-start gap-3">
+          <div className="w-2 h-2 bg-amber-400 rounded-full mt-2 flex-shrink-0"></div>
+          <span className="text-gray-300">Integrated approach combining strategic and financial engineering</span>
+        </div>
+        <div className="flex items-start gap-3">
+          <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+          <span className="text-gray-300">Access to proprietary deal flow and market intelligence</span>
+        </div>
+        <div className="flex items-start gap-3">
+          <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
+          <span className="text-gray-300">Strong relationships across the CNS ecosystem</span>
+        </div>
+      </div>
     </div>
     
-    <div className="pathway-card">
-      <h3>🔗 Bolt-On Integration</h3>
-      <p>Systematically acquire complementary CNS assets to expand market reach, enhance capabilities, and drive synergistic value creation across the integrated platform.</p>
+    <div className="mt-6 text-center">
+      <a className="button glow-on-hover" href="/noetic-2">
+        View Complete Analysis →
+      </a>
     </div>
-    
-    <div className="pathway-card">
-      <h3>⚡ Technology Acceleration</h3>
-      <p>Invest in cutting-edge CNS technologies, digital health solutions, and innovative treatment modalities to maintain competitive advantage and drive organic growth.</p>
-    </div>
-    
-    <div className="pathway-card">
-      <h3>🌐 Market Expansion</h3>
-      <p>Leverage integrated platform to enter new therapeutic areas, geographic markets, and patient populations while optimizing operational efficiency.</p>
-    </div>
-  </div>
-
-  ## Value Creation Framework
-
-  Our transformation strategy is built on five distinct phases, each designed to maximize value creation while managing execution risk:
-
-  - **Phase 0 - Foundation**: Establish operational infrastructure and market intelligence
-  - **Phase 1 - Anchor**: Acquire and integrate flagship CNS company  
-  - **Phase 2 - Bolt-Ons**: Strategic acquisitions to expand platform capabilities
-  - **Phase 3 - Scale**: Optimize operations and drive synergistic value creation
-  - **Phase 4 - Exit**: Maximize value realization through strategic exit opportunities
-
-  ## Investment Thesis
-
-  The central nervous system represents one of healthcare's most significant untapped opportunities. With an aging global population, increasing prevalence of neurological disorders, and breakthrough innovations in treatment modalities, the CNS market is positioned for sustained growth.
-
-  **Our competitive advantages**:
-  - Deep sector expertise and operational capabilities
-  - Proven track record in CNS investments and value creation  
-  - Integrated approach combining strategic and financial engineering
-  - Access to proprietary deal flow and market intelligence
-  - Strong relationships across the CNS ecosystem
-
-  [**View Complete Analysis →**](/noetic-2)
+  </CollapsibleSection>
 </div>
