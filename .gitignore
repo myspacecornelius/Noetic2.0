@@ -23,3 +23,4 @@ yarn-debug.log*
 /Dharma-error.log*
 /Dharma-*.tgz
 .DS_Store
+.vercel

@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "chart.js": "^4.5.0",
     "framer-motion": "^12.23.12",
     "html2canvas": "^1.4.1",
