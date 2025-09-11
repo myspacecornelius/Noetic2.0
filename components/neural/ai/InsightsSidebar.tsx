@@ -88,7 +88,7 @@ export default function InsightsSidebar({
             key={tab.id}
             onClick={() => setActiveTab(tab.id as any)}
             className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
-            aria-selected={activeTab === tab.id}
+            aria-pressed={activeTab === tab.id}
           >
             {tab.label}
             {tab.count !== null && tab.count > 0 && (

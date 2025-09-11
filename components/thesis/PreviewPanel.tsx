@@ -5,9 +5,9 @@ import { useMetricsData } from '../../hooks/useMetricsData'
 import type { ThesisBuilderState } from '../../types/data'
 
 interface PreviewPanelProps {
-  state: ThesisBuilderState
-  onBack: () => void
-  onNext: () => void
+  readonly state: ThesisBuilderState
+  readonly onBack: () => void
+  readonly onNext: () => void
 }
 
 // Chart components moved outside to avoid dependency issues
@@ -18,6 +18,22 @@ const chartComponents = {
   'platform-kpi-bar': PlatformKpiBar,
   'value-creation-dual': ValueCreationDualAxis,
   'return-bar': ReturnBar
+}
+
+// Helper function to format metric keys
+function formatMetricKey(key: string): string {
+  return key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())
+}
+
+// Helper function to render risk items by level
+function renderRiskItems(risks: Array<{level: string, name: string}>, level: string) {
+  return risks
+    .filter(risk => risk.level === level)
+    .map(risk => (
+      <div key={risk.name} className="risk-item">
+        {risk.name}
+      </div>
+    ))
 }
 
 export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProps) {
@@ -121,9 +137,9 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
     type ChartComponentKey = keyof typeof chartComponents
     
     state.selections
-      .sort((a, b) => a.order - b.order)
+      .toSorted((a, b) => a.order - b.order)
       .forEach(selection => {
-        if (selection.type === 'chart' && (selection.id as string) in chartComponents) {
+        if (selection.type === 'chart' && selection.id in chartComponents) {
           const chartKey = selection.id as ChartComponentKey
           const ChartComponent = chartComponents[chartKey]
           if (ChartComponent) {
@@ -167,7 +183,7 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
                       <div className="metrics-grid">
                         {Object.entries(phaseData.metrics).map(([key, value]) => (
                           <div key={key} className="metric-item">
-                            <span className="metric-key">{key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}</span>
+                            <span className="metric-key">{formatMetricKey(key)}</span>
                             <span className="metric-value">{value}</span>
                           </div>
                         ))}
@@ -191,13 +207,7 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
                       <div key={level} className={`risk-category risk-${level}`}>
                         <h3>{level.toUpperCase()} RISK</h3>
                         <div className="risk-items">
-                          {metricsData.risks
-                            .filter(risk => risk.level === level)
-                            .map(risk => (
-                              <div key={risk.name} className="risk-item">
-                                {risk.name}
-                              </div>
-                            ))}
+                          {renderRiskItems(metricsData.risks, level)}
                         </div>
                       </div>
                     ))}
@@ -272,10 +282,18 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
       <div className="preview-content">
         <div className="page-thumbnails">
           {previewPages.map((page, index) => (
-            <div
+            <button
               key={page.id}
               className={`thumbnail ${currentPage === index ? 'active' : ''}`}
               onClick={() => setCurrentPage(index)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setCurrentPage(index)
+                }
+              }}
+              aria-label={`Go to page ${index + 1}: ${page.title}`}
+              type="button"
             >
               <div className="thumbnail-preview">
                 <div className="thumbnail-header">
@@ -317,7 +335,7 @@ export default function PreviewPanel({ state, onBack, onNext }: PreviewPanelProp
                 </div>
                 <div className="thumbnail-title">{page.title}</div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
 

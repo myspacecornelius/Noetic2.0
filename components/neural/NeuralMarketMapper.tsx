@@ -308,11 +308,15 @@ export default function NeuralMarketMapper({ className = '' }: NeuralMarketMappe
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current)
       }
-      if (rendererRef.current && mountRef.current) {
+      // Store current values to avoid stale closure
+      const currentRenderer = rendererRef.current
+      const currentMount = mountRef.current
+      if (currentRenderer && currentMount) {
         try {
-          mountRef.current.removeChild(rendererRef.current.domElement)
+          currentMount.removeChild(currentRenderer.domElement)
         } catch (error) {
-          // Element might already be removed
+          // Element might already be removed during React unmount
+          console.debug('Renderer cleanup: DOM element already removed', error)
         }
       }
     }

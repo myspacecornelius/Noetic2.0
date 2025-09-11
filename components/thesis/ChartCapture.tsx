@@ -1,12 +1,13 @@
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useCallback } from 'react'
 import html2canvas from 'html2canvas'
+import Image from 'next/image'
 import { ErrorBoundary } from '../ErrorBoundary'
 
 interface ChartCaptureProps {
-  chartId: string
-  component: React.ComponentType
-  height?: number
-  onCapture?: (dataUrl: string) => void
+  readonly chartId: string
+  readonly component: React.ComponentType
+  readonly height?: number
+  readonly onCapture?: (dataUrl: string) => void
 }
 
 export default function ChartCapture({ 
@@ -19,7 +20,7 @@ export default function ChartCapture({
   const [isCapturing, setIsCapturing] = useState(false)
   const [capturedImage, setCapturedImage] = useState<string | null>(null)
 
-  const captureChart = async () => {
+  const captureChart = useCallback(async () => {
     if (!chartRef.current || isCapturing) return
 
     setIsCapturing(true)
@@ -50,7 +51,7 @@ export default function ChartCapture({
     } finally {
       setIsCapturing(false)
     }
-  }
+  }, [chartRef, isCapturing, height, onCapture])
 
   useEffect(() => {
     // Auto-capture after chart renders
@@ -100,13 +101,12 @@ export default function ChartCapture({
         )}
         
         {capturedImage && !isCapturing && (
-          <img 
+          <Image 
             src={capturedImage} 
             alt={`Chart preview for ${chartId}`}
             className="captured-chart-image"
+            fill
             style={{ 
-              width: '100%', 
-              height: '100%', 
               objectFit: 'contain',
               borderRadius: '8px'
             }}
